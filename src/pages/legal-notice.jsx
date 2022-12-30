@@ -1,8 +1,10 @@
-import PageStatic from "../components/page-static";
+import PageStatic from "../root-components/page-static";
 
 function LegalNotice() {
   return(
-    <PageStatic id={"cG9zdDo5NQ=="} />
+    <div className="legal-notice">
+        <PageStatic id={"cG9zdDo5NQ=="} />
+    </div>
   )
 }
 export default LegalNotice;

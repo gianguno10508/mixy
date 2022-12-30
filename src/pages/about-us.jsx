@@ -1,8 +1,10 @@
-import PageStatic from "../components/page-static";
+import PageStatic from "../root-components/page-static";
 
 function AboutUs() {
   return(
-    <PageStatic id={"cG9zdDo2OA=="} />
+    <div className="about-us">
+        <PageStatic id={"cG9zdDo2OA=="} />
+    </div>
   )
 }
 export default AboutUs;

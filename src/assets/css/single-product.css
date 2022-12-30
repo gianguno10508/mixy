@@ -1,0 +1,179 @@
+.js-product-miniature{
+    position: relative;
+    background: #fff;
+    border: none;
+    z-index: 1;
+    transition: all 300ms linear;
+}
+.js-product-miniature.style_product3 .img_block{
+    overflow: visible;
+    position: relative;
+}
+.js-product-miniature .img_block img{
+    width: 100%;
+    margin: 0;
+    transition: all 300ms linear;
+}
+.js-product-miniature.style_product3 .add-to-links{
+    display: flex;
+    flex-direction: column;
+    font-size: 0;
+    z-index: 2;
+    margin: 0;
+    position: absolute;
+    right: 20px;
+    bottom: -20px;
+    line-height: 1;
+    flex-wrap: wrap;
+}
+.product-flag{
+    position: absolute;
+    top: 20px!important;
+    left: 20px;
+    z-index: 1;
+    margin: 0;
+}
+.product-price-and-shipping-top .discount-product{
+    line-height: 23px;
+    height: 23px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 5px 0 5px 0;
+    text-transform: uppercase;
+    text-align: center;
+    z-index: 4;
+    font-family: "Dosis",sans-serif;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: inline-block;
+    color: #fff;
+    background: #da2e1f;
+    padding: 0 5px;
+    min-width: 50px;
+}
+.js-product-miniature .product_desc{
+    min-height: 238px;
+    padding: 20px;
+    background: #fff;
+    position: relative;
+    transition: all 300ms linear;
+}
+.js-product-miniature .product_desc .hook-reviews{
+    transition: all 300ms linear;
+    line-height: 1;
+    position: relative;
+    display: inline-block;
+    text-align: left;
+    margin-bottom: 10px;
+}
+.js-product-miniature .product_desc .hook-reviews .comments_note{
+    direction: ltr!important;
+    position: relative;
+}
+.hook-reviews .star_content::before, #product_comments_block_extra .star_content::before, .reviews-header .star_content::before{
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    -webkit-font-smoothing: antialiased;
+    color: #acacac;
+    font-family: "roadthemes-icon";
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 1;
+    content: "\e915" "\e915" "\e915" "\e915" "\e915";
+    display: block;
+    font-style: normal;
+    font-weight: 400;
+    speak: none;
+}
+.js-product-miniature .product_desc .hook-reviews .nb-comments{
+    font-size: 13px;
+    color: #adadad;
+    display: none;
+}
+.hook-reviews .star_content .rating_star, #product_comments_block_extra .star_content .rating_star, .reviews-header .star_content .rating_star{
+    display: inline-block;
+    overflow: hidden;
+    width: 100%;
+}
+.js-product-miniature .product_desc .hook-reviews .star_content{
+    display: inline-block;
+    position: relative;
+    line-height: 1;
+}
+.js-product-miniature:after{
+    content: '';
+    position: absolute;
+    left: -1px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border: 1px solid #e5e5e5;
+    pointer-events: none;
+    transition: all 300ms linear;
+}
+.js-product-miniature .product_desc h3{
+    font-weight: 400;
+    margin: 0;
+    line-height: 1;
+}
+.js-product-miniature .product_desc .product_name{
+    color: #1d1e22;
+    font-size: 14px;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 18px;
+}
+.product-price-and-shipping{
+    line-height: 20px;
+    font-family: Dosis,sans-serif;
+}
+.sr-only{
+    border: 0;
+    clip: rect(0,0,0,0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+.product-price-and-shipping .sr-only{
+    display: none;
+}
+.product-price-and-shipping .regular-price{
+    color: #999;
+    font-weight: 400;
+    text-decoration: line-through;
+    margin-right: 2px;
+}
+.product-price-and-shipping .price{
+    font-weight: 600;
+    color: #da2e1f;
+    font-size: 18px;
+}
+.countdown{
+    margin-top: 20px;
+}
+.title_countdown{
+    font-size: 14px;
+    color: #535456;
+    line-height: 18px;
+    margin-bottom: 20px;
+}
+.is-countdown{
+    position: relative;
+    font-size: 0;
+    line-height: 1;
+    background: #da2e1f;
+    border-radius: 30px;
+    display: inline-flex;
+    padding: 4px 25px;
+}

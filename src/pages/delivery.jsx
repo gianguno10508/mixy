@@ -1,8 +1,10 @@
-import PageStatic from "../components/page-static";
+import PageStatic from "../root-components/page-static";
 
 function Delivery() {
   return(
-    <PageStatic id={"cG9zdDo4Mg=="} />
+    <div className="delivery">
+        <PageStatic id={"cG9zdDo4Mg=="} />
+    </div>
   )
 }
 export default Delivery;

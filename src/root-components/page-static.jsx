@@ -10,6 +10,10 @@ const PageStatic = ({id}) => {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
-  return <Markup content={data.page.content} />;
+  return(
+    <div className="container">
+       <Markup content={data.page.content} />
+    </div>
+  )
 };
 export default PageStatic;
