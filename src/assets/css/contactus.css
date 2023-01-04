@@ -1,0 +1,130 @@
+.section-contact-us .content-contact-us .left-colum .contact-rich {
+    margin-bottom: 32px;
+    word-wrap: break-word;
+}
+
+.section-contact-us .content-contact-us .left-colum .contact-rich h4 {
+    font-size: 28px;
+    text-transform: capitalize;
+    color: #232323;
+    margin-bottom: 32px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.contact-rich .block {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.contact-rich .block:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.contact-rich .block .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    width: 42px;
+    height: 42px;
+    background: #1c1e22;
+    color: #fff;
+    border-radius: 50%;
+    flex-wrap: wrap;
+    float: left;
+}
+
+.contact-rich .block .icon i {
+    font-size: 22px;
+}
+
+.data,
+.data a {
+    color: #232323;
+    width: auto;
+    overflow: hidden;
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+#content-wrapper {
+    margin-bottom: 60px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.contact-rich h3,
+.contact-rich h4 {
+    font-size: 28px;
+    text-transform: capitalize;
+    color: #232323;
+    font-weight: 600;
+    line-height: 1;
+    font-family: "Inter", sans-serif;
+    margin-bottom: 32px;
+}
+
+.form-control-label {
+    text-align: left;
+    color: #1c1e22;
+    padding-top: 10px;
+}
+
+.form-control {
+    background-color: #f5f5f5;
+    color: #1c1e22;
+    padding: 8px 15px;
+    border: 1px solid #e5e5e5;
+    z-index: 2;
+}
+
+.form-control-select {
+    background: #f1f1f1 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAAPklEQVR4Ae3TwREAEBQD0V/6do4SXPZg7EsBhsQ8IEmSMOsiuEfg3gL3oXC7wK0bd1G4o8X9F4yIkyQfSrIByQBjp7QuND8AAAAASUVORK5CYII=) no-repeat scroll right .5rem center/1.25rem 1.25rem;
+}
+
+.filestyle {
+    position: absolute;
+    clip: rect(0px, 0px, 0px, 0px);
+}
+
+.input-group .input-group-btn>.btn {
+    padding: 12.5px 20px;
+    border: 0;
+    box-shadow: none;
+    color: #fff;
+    font-size: .6875rem;
+    font-weight: 400;
+    margin-left: 0;
+    text-transform: uppercase;
+}
+
+.group-span-filestyle .btn-default,
+.btn:first-child:hover {
+    background: #1c1e22;
+}
+
+.btn-send {
+    text-transform: capitalize;
+    font-weight: 400;
+    border: none;
+    box-shadow: none;
+    padding: 10px 30px;
+    border-radius: 30px;
+    display: inline-block;
+    background: #1c1e22;
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.8;
+    float: right;
+    margin-top: 20px;
+}
+
+.map {
+    position: relative;
+    margin-bottom: 60px;
+}
