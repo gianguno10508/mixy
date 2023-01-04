@@ -3,7 +3,9 @@ import Footer from './components/footer';
 import Header from './components/header';
 import SingleProduct from './components/single-product';
 import AboutUs from './pages/about-us';
+import CreateAccount from './pages/create-account';
 import Delivery from './pages/delivery';
+import ForgotPassword from './pages/forgot-password';
 import Homepage from './pages/homepage';
 import LegalNotice from './pages/legal-notice';
 import Login from './pages/login';
@@ -21,7 +23,9 @@ function App() {
       {/* <Products />
       <Homepage />
       <Footer /> */}
-      <Login />
+      {/* <Login /> */}
+      <ForgotPassword />
+      {/* <CreateAccount /> */}
       {/* <SingleProduct /> */}
       {/* <Delivery /> */}
       {/* <SecurePayment /> */}

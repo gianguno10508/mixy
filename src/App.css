@@ -92,9 +92,99 @@ table{
 caption, th{
   text-align: left;
 }
+.btn-secondary, .btn-tertiary, .btn-primary{
+  text-transform: capitalize;
+  font-weight: 400;
+  border: none;
+  box-shadow: none;
+  padding: 10px 30px;
+  border-radius: 30px;
+  display: inline-block;
+  background: #1c1e22;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .btn:hover, .btn:focus, .btn:active, .btn.active{
+  color: #fff;
+  border: none;
+  outline: 0!important;
+  text-decoration: none!important;
+  box-shadow: none!important;
+}
+#_desktop_search_category .search-icon:hover, #pos_search_top .form_search .search_submit:hover, .bottom_bg, .top_bg, .top-mobile, #_desktop_wishtlist .wishtlist_top a:hover, #_desktop_compare .compare_top a:hover, .blockcart .button_cart a.desktop:hover:before, .blockcart .button_cart a.mobile:hover:before, #_desktop_user_info .user-info-block a:hover, .desc_slideshow .readmore, .desc_slideshow .readmore:hover, #_desktop_vegamenu .pos-menu-vertical .title_vertical, #_desktop_megamenu .pos-menu-horizontal .menu-content .menu-item .menu-dropdown.cat-drop-menu li:hover>a, .js-product-miniature.style_product_default .quick-view a.quick_view:hover, .js-product-miniature.style_product1 div.cart button.ajax_add_to_cart_button:hover, .js-product-miniature.style_product1 div.cart span.ajax_add_to_cart_button:hover, .js-product-miniature.style_product1 .add-to-links li a:hover, .js-product-miniature.style_product2 .add-to-links li a:hover, .js-product-miniature.style_product3 .add-to-links li a:hover, .js-product-miniature.style_product2 div.cart button.ajax_add_to_cart_button, .js-product-miniature.style_product2 div.cart span.ajax_add_to_cart_button, .js-product-miniature.style_product3 .add-to-links li.cart button.ajax_add_to_cart_button, .js-product-miniature.style_product3 .add-to-links li.cart span.ajax_add_to_cart_button, .blockcart .popup_cart ul li .img_content .product-quantity, .blockcart .button_cart a.desktop .item_count, .blockcart .button_cart a.mobile .item_count, .slideshow_container .pos-slideshow .nivo-directionNav a:hover, .slideshow_container .pos-slideshow .nivo-controlNav a:hover, .slideshow_container .pos-slideshow .nivo-controlNav a.active, .owl-nav>div:hover, .owl-dots .owl-dot.active span, .owl-dots .owl-dot:hover span, .product-flag .new, .product-flag .on-sale, .product-flag .pack, .product-price-and-shipping-top .discount-product, .poslistcategories .list-categories .desc-listcategoreis .view-all a:hover, .tab-category-container-slider ul.tab_cates li:hover:before, .tab-category-container-slider ul.tab_cates li.active:before, .home_blog_post_area .blog_slider .item .blog_post .post_thumbnail .meta_category a:hover, .ft_newsletter form .btn, #posnewsletterpopup .pnp-newsletter-form .pos-btn-newsletter:hover, #footer .footer-container .footer_block h3:after, .back-top a, .banner-box .text-banner a:hover, #js-product-list .product_content.list .js-product-miniature .product_desc div.cart button.ajax_add_to_cart_button, #js-product-list .product_content.list .js-product-miniature .product_desc div.cart span.ajax_add_to_cart_button, .poscompare-product .product_desc div.cart button.ajax_add_to_cart_button:hover, .poscompare-product .product_desc div.cart span.ajax_add_to_cart_button:hover, .wlp_bought_list .wlp_product .add-to-cart:hover, .block-categories a.h6:before, #search_filters_wrapper #search_filters .h6:before, #search_filters .ui-slider .ui-slider-handle, #tags_block h2:before, #tags_block .tags_block li a:hover, #search_filters .ui-widget-header, .pagination a:hover, .products-sort-order .select-list:hover, .pagination .current a, .product-actions .add-to-cart, .tabs .nav-tabs .nav-item .nav-link:hover:after, .tabs .nav-tabs .nav-item .nav-link.active:after, .poscompare-product .desc-box div.cart button.ajax_add_to_cart_button:hover, .poscompare-product .desc-box div.cart span.ajax_add_to_cart_button:hover, .product-cover-container .product-cover .slick-prev:hover, .product-cover-container .product-cover .slick-next:hover, .btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.btn-primary.dropdown-toggle.focus, .open>.btn-primary.dropdown-toggle:focus, .open>.btn-primary.dropdown-toggle:hover, .btn-secondary:hover, .btn-tertiary:hover, .btn-primary:hover, .btn-secondary:focus, .btn-tertiary:focus, .btn-primary:focus, .btn-secondary:active, .btn-tertiary:active, .btn-primary:active, .btn-secondary:active:focus, .btn-tertiary:active:focus, .btn-primary:active:focus{
+  background-color: #15bd68;
+}
+.help-block{
+  margin-top: 0.625rem;
+}
+.alert{
+  margin-top: 20px;
+  width: 100%;
+  font-size: .8125rem;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0;
+}
+.alert-danger{
+  background-color: #f2dede;
+  border-color: #ebcccc;
+  color: #a94442;
+}
+img.woo-next-cart-item-spinner{
+  padding-top: 20px;
+}
+.btn-primary .material-icons, .btn-secondary .material-icons, .btn-tertiary .material-icons{
+  margin-right: 0.625rem;
+}
+a.account-link.btn-primary:hover{
+  color: #fff;
+}
+.form-control-valign{
+  padding-top: 0.5rem;
+}
+#authentication .radio-inline, #identity .radio-inline{
+  padding: 0;
+}
+.custom-radio input[type="radio"]{
+  display: inline-block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid #7a7a7a;
+  background: #fff;
+}
+label.radio-inline,
+span.custom-radio{
+  margin-right: 5px;
+}
+.hide{
+  display: none;
+}
+.appear{
+  display: block;
+}
 
 
 
+
+@media (max-width: 1199px){
+  .card.page-content {
+    margin-bottom: 60px;
+  }
+}
+@media (max-width: 767px){
+  .card.page-content {
+    margin-bottom: 30px;
+  }
+  label{
+    margin-bottom: 0.5rem;
+  }
+}
 
 
 
