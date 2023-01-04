@@ -1,3 +1,4 @@
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Footer from './components/footer';
 import Footer1 from './components/Footer1';
@@ -19,6 +20,11 @@ import Products from './root-components/products';
 function App() {
   return (
     <div className="App">
+      <Header1 />
+      <Routes>
+        <Route path='/' element={<Stores />} />
+      </Routes>
+      <Footer1 />
       {/* <Header /> */}
       {/* <AboutUs /> */}
       {/* <Posts /> */}
@@ -32,10 +38,8 @@ function App() {
       {/* <LegalNotice /> */}
 
       {/* _____ */}
-      {/* <Header1 /> */}
-      {/* <Footer1 /> */}
-      {/* <ContactUs /> */}
-      {/* <Home /> */}
+      {/* <ContactUs />
+      <Home /> */}
     </div>
   );
 }
