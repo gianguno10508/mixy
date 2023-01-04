@@ -1,9 +1,13 @@
 import './App.css';
 import Footer from './components/footer';
+import Footer1 from './components/Footer1';
 import Header from './components/header';
+import Header1 from './components/Header1';
 import SingleProduct from './components/single-product';
 import AboutUs from './pages/about-us';
+import ContactUs from './pages/ContactUs';
 import Delivery from './pages/delivery';
+import Home from './pages/Home';
 import Homepage from './pages/homepage';
 import LegalNotice from './pages/legal-notice';
 import Login from './pages/login';
@@ -21,11 +25,17 @@ function App() {
       {/* <Products />
       <Homepage />
       <Footer /> */}
-      <Login />
+      {/* <Login /> */}
       {/* <SingleProduct /> */}
       {/* <Delivery /> */}
       {/* <SecurePayment /> */}
       {/* <LegalNotice /> */}
+
+      {/* _____ */}
+      {/* <Header1 /> */}
+      {/* <Footer1 /> */}
+      {/* <ContactUs /> */}
+      {/* <Home /> */}
     </div>
   );
 }
