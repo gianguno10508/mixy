@@ -1,3 +1,4 @@
+import { useQuery } from '@apollo/client';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Footer from './components/footer';
@@ -5,6 +6,8 @@ import Footer1 from './components/Footer1';
 import Header from './components/header';
 import Header1 from './components/Header1';
 import SingleProduct from './components/single-product';
+import GET_PAGE_ID from './graphql/setting-page-static';
+import Page404 from './pages/404';
 import AboutUs from './pages/about-us';
 import ContactUs from './pages/ContactUs';
 import Delivery from './pages/delivery';
@@ -16,8 +19,17 @@ import SecurePayment from './pages/secure-payment';
 import Stores from './pages/stores';
 import Posts from './root-components/posts';
 import Products from './root-components/products';
+import LoadingImg from '../src/assets/images/Loading_icon.gif'
 
 function App() {
+  const { loading, error, data } = useQuery(GET_PAGE_ID, {
+    variables: {
+      idPage: 'cG9zdDozNTY=',
+    },
+  });
+
+  if (loading) return <img className='loading' src={LoadingImg}/>;
+  if (error) return <Page404 />;
   return (
     <div className="App">
       <Header1 />
