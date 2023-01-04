@@ -6,20 +6,23 @@ import AboutUs from './pages/about-us';
 import Delivery from './pages/delivery';
 import Homepage from './pages/homepage';
 import LegalNotice from './pages/legal-notice';
+import Login from './pages/login';
 import SecurePayment from './pages/secure-payment';
+import Stores from './pages/stores';
 import Posts from './root-components/posts';
 import Products from './root-components/products';
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      {/* <Header /> */}
       {/* <AboutUs /> */}
       {/* <Posts /> */}
       {/* <Products />
       <Homepage />
       <Footer /> */}
-      <SingleProduct />
+      <Login />
+      {/* <SingleProduct /> */}
       {/* <Delivery /> */}
       {/* <SecurePayment /> */}
       {/* <LegalNotice /> */}

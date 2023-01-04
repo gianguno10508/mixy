@@ -1,3 +1,36 @@
-.about-us{
-    
+/*Store Page*/
+.store-item-container{
+    display: flex;
 }
+.store .page-stores .store-item{
+    border-bottom: 1px solid #e5e5e5;
+}
+.store .page-stores .store-item-container{
+    align-items: center;
+    padding: 1.875rem 0;
+    justify-content: space-around;
+    -webkit-box-align: center;
+    display: flex;
+}
+.store .page-stores .store-item .h3.card-title{
+    color: #1c1e22;
+    text-transform: capitalize;
+}
+.store .page-stores .store-item-container .store-description{
+    font-size: 1rem;
+    color: #666;
+}
+.store .page-stores .store-item-container .divide-left tr{
+    height: 1.563rem;
+}
+.store .page-stores .store-item-container .divide-left th{
+    font-weight: 500;
+}
+.store .page-stores .store-item-container .divide-left td{
+    padding-left: 2rem;
+}
+.store .page-stores .store-item-container ul{
+    margin-bottom: 0;
+    font-size: .9375rem;
+}
+/*End Store Page*/

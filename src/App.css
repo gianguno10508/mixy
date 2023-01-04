@@ -4,6 +4,21 @@ body{
   font-size: 13px;
   color: #606164;
 }
+@media(min-width: 1200px){
+  .container{
+    width: 1320px;
+    max-width: 100%;
+  }
+  .h2, h2{
+    font-size: 2rem;
+  }
+}
+@media(max-width: 1199px){
+  .container{
+    width: auto;
+    max-width: 100%;
+  }
+}
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
   color: #1c1e22;
   font-weight: 600;
@@ -13,6 +28,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
 }
 .h1, h1{
   font-size: 1.375rem;
+}
+.h2, h2{
+  font-size: 1.25rem;
 }
 .h3, .h4, h3, h4{
   font-size: 1.125rem;
@@ -36,8 +54,44 @@ ul{
 a{
   transition: all 300ms linear;
   text-decoration: none;
+  color: #1c1e22;
 }
-
+.card{
+  box-shadow: none;
+  border: none;
+  padding: 0;
+  position: relative;
+  display: block;
+  margin-bottom: 0.75rem;
+  background-color: #fff;
+  border-radius: 0;
+}
+img{
+  max-width: 100%;
+  margin: auto;
+  height: auto;
+  vertical-align: middle;
+}
+i, cite, em, var, address, dfn{
+  font-style: normal;
+}
+address, dl, ol, ul{
+  margin-bottom: 1rem;
+}
+address{
+  line-height: inherit;
+}
+table{
+  border-collapse: collapse;
+  background-color: transparent;
+  caption-side: bottom;
+}
+.collapse:not(.show){
+  display: none;
+}
+caption, th{
+  text-align: left;
+}
 
 
 
