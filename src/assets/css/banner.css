@@ -1,0 +1,146 @@
+.pos_bannerslide {
+    margin-top: 30px;
+}
+
+.pos_bannerslide .banner-left-main .banner-item {
+    position: relative;
+}
+
+.banner-left-main .banner-item .banner-content {
+    position: absolute;
+    top: 20%;
+    text-align: left;
+    z-index: 8;
+    padding-left: 40px;
+}
+
+.banner-left-main .banner-item .banner-content .title p,
+.banner-left-main .banner-item .banner-content .price p {
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+.banner-left-main .banner-item .banner-content .title h2 {
+    width: 50%;
+    line-height: 1.25;
+    font-size: 56px;
+    font-weight: 700;
+}
+
+.banner-left-main .banner-item .banner-content .price h3 {
+    line-height: 1;
+    font-size: 46px;
+    letter-spacing: 0;
+    font-weight: 600;
+    text-transform: capitalize;
+    margin: 20px 0;
+    color: #da2e1f;
+}
+
+.banner-left-main .banner-item .banner-content .button a {
+    display: inline-block;
+    background: #184d47;
+    font-size: 12px;
+    padding: 10px 35px;
+    line-height: 32px;
+    border-radius: 30px;
+    pointer-events: auto;
+    font-weight: 600;
+    margin-top: 25px;
+    color: #fff;
+}
+
+.banner-left-main .banner-item .banner-content .button a i {
+    padding-left: 10px;
+}
+
+/* ____Banner Right___ */
+.pos_bannerslide .banner-box {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+    border-radius: 5px;
+}
+
+.pos_bannerslide .banner-box .text-banner {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 30px;
+    pointer-events: none;
+    transform: translateY(-50%);
+    flex-wrap: wrap;
+}
+
+.pos_bannerslide .banner-box .text-banner h3 {
+    margin-bottom: 30px;
+    color: #1c1e22;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.pos_bannerslide .banner-box .text-banner p {
+    margin-bottom: 0;
+    font-size: 16px;
+    color: #1c1e22;
+}
+
+.banner-box .text-banner a {
+    display: inline-block;
+    background: #fff;
+    font-size: 12px;
+    padding: 0 20px;
+    line-height: 32px;
+    color: #184d47;
+    border-radius: 30px;
+    pointer-events: auto;
+    font-weight: 600;
+    margin-top: 25px;
+}
+
+.banner-box .text-banner a:hover,
+.banner-left-main .banner-item .banner-content .button a:hover {
+    background: #15bd68;
+    color: #fff;
+}
+
+@keyframes passing {
+    0% {
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+        opacity: 0
+    }
+
+    50% {
+        -webkit-transform: translateX(0%);
+        -ms-transform: translateX(0%);
+        transform: translateX(0%);
+        opacity: 1
+    }
+
+    100% {
+        -webkit-transform: translateX(50%);
+        -ms-transform: translateX(50%);
+        transform: translateX(50%);
+        opacity: 0
+    }
+}
+
+.pos_bannerslide .banner-box .text-banner a i {
+    padding-left: 5px;
+}
+
+.pos_bannerslide .banner-box .text-banner a:hover i,
+.banner-left-main .banner-item .banner-content .button a:hover i {
+    animation: passing 1.2s linear infinite;
+}

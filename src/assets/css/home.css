@@ -1,0 +1,56 @@
+/* ___-PopularCategories___ */
+.popular-categories-main {
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.popular-categories-main .pos_title {
+    position: relative;
+    display: block;
+    margin-bottom: 30px;
+}
+
+.popular-categories-main .pos_title h2 {
+    margin: 0;
+    position: relative;
+    text-transform: capitalize;
+    font-weight: 700;
+    line-height: 1;
+    display: block;
+    font-family: "Inter", sans-serif;
+    font-size: 24px;
+    color: #1c1e22;
+}
+
+.popular-categories-main .pos_title .desc_title {
+    color: #757171;
+    font-weight: 400;
+    line-height: 18px;
+    position: relative;
+    margin-top: 10px;
+    max-width: 88%;
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+}
+
+.popular-categories-main .content-list {
+    border: 1px solid #e5e5e5;
+}
+
+.popular-categories-main .content-list .item-categories {
+    position: relative;
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    padding: 35px 20px;
+}
+
+.popular-categories-main .content-list .item-categories:nth-child(-n+3),
+.popular-categories-main .content-list .item-categories:nth-child(n+5) {
+    border-right: 1px solid #e5e5e5;
+}
+
+.popular-categories-main .content-list .item-categories:nth-child(-n+4) {
+    border-bottom: 1px solid #e5e5e5;
+}
