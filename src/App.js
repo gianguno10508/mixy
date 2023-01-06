@@ -6,7 +6,6 @@ import Footer1 from './components/Footer1';
 import Header from './components/header';
 import Header1 from './components/Header1';
 import SingleProduct from './components/single-product';
-import GET_PAGE_ID from './graphql/setting-page-static';
 import Page404 from './pages/404';
 import AboutUs from './pages/about-us';
 import ContactUs from './pages/ContactUs';
@@ -23,16 +22,13 @@ import LoadingImg from '../src/assets/images/Loading_icon.gif'
 import MyAccount from './pages/my-account';
 import DetailBlog from './pages/detail-blog';
 import DetailProduct from './pages/detail-product';
+import PAGES from './graphql/pages';
 
 function App() {
-  // const { loading, error, data } = useQuery(GET_PAGE_ID, {
-  //   variables: {
-  //     idPage: 'cG9zdDozNTY=',
-  //   },
-  // });
+  const { loading, error, data } = useQuery(PAGES);
 
-  // if (loading) return <img className='loading' src={LoadingImg}/>;
-  // if (error) return <Page404 />;
+  if (loading) return <img className='loading' src={LoadingImg}/>;
+  if (error) return <Page404 />;
   return (
     <div className="App">
       <Header1 />
