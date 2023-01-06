@@ -316,7 +316,6 @@ function CreateAccount() {
 
                 <button
                   className="btn btn-primary form-control-submit float-xs-right"
-                  data-link-action="save-customer"
                   type="submit"
                 >
                   Save

@@ -20,6 +20,8 @@ import Stores from './pages/stores';
 import Posts from './root-components/posts';
 import Products from './root-components/products';
 import LoadingImg from '../src/assets/images/Loading_icon.gif'
+import MyAccount from './pages/my-account';
+import DetailBlog from './pages/detail-blog';
 
 function App() {
   const { loading, error, data } = useQuery(GET_PAGE_ID, {
@@ -34,7 +36,7 @@ function App() {
     <div className="App">
       <Header1 />
       <Routes>
-        <Route path='/' element={<Stores />} />
+        <Route path='/' element={<DetailBlog />} />
       </Routes>
       <Footer1 />
       {/* <Header /> */}
