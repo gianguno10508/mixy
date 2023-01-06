@@ -22,21 +22,22 @@ import Products from './root-components/products';
 import LoadingImg from '../src/assets/images/Loading_icon.gif'
 import MyAccount from './pages/my-account';
 import DetailBlog from './pages/detail-blog';
+import DetailProduct from './pages/detail-product';
 
 function App() {
-  const { loading, error, data } = useQuery(GET_PAGE_ID, {
-    variables: {
-      idPage: 'cG9zdDozNTY=',
-    },
-  });
+  // const { loading, error, data } = useQuery(GET_PAGE_ID, {
+  //   variables: {
+  //     idPage: 'cG9zdDozNTY=',
+  //   },
+  // });
 
-  if (loading) return <img className='loading' src={LoadingImg}/>;
-  if (error) return <Page404 />;
+  // if (loading) return <img className='loading' src={LoadingImg}/>;
+  // if (error) return <Page404 />;
   return (
     <div className="App">
       <Header1 />
       <Routes>
-        <Route path='/' element={<DetailBlog />} />
+        <Route path='/' element={<Login />} />
       </Routes>
       <Footer1 />
       {/* <Header /> */}

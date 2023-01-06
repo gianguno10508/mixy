@@ -1,4 +1,7 @@
 function DetailBlog() {
+  const handleTest = () =>{
+    console.log('asdufsdfgsfsfsdyfsdfsfsfsdfs');
+  }
   return (
     <div className="detail-post">
       <div className="container">
@@ -12,12 +15,7 @@ function DetailBlog() {
           </h3>
           <form
             className="comment_form"
-            action=""
-            method="post"
             id="xipblogs_commentfrom"
-            role="form"
-            data-toggle="validator"
-            novalidate="true"
           >
             <div className="form-group xipblogs_message"></div>
             <div className="form-group xipblog_name_parent">
@@ -38,6 +36,7 @@ function DetailBlog() {
                 name="xipblog_email"
                 className="form-control xipblog_email"
                 required
+                onInvalid={handleTest}
               />
             </div>
             <div className="form-group xipblog_website_parent">

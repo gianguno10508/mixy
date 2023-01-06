@@ -160,7 +160,9 @@ label.col-md-3.form-control-label.required{
     padding: 18px 20px;
     width: 100%;
 }
-
+button.btn.btn-primary.form-control-submit.float-xs-right:hover{
+    background-color: #4cbb6c;
+}
 
 @media (max-width: 767px){
     .forgotten-password .form-fields .email{
