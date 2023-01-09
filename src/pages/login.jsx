@@ -3,6 +3,7 @@ import { useState } from "react";
 import LOGIN from "../graphql/login";
 import "../assets/css/login-styles.css";
 import cartSpinnerGif from "../assets/images/cart-spinner.gif";
+import { Link } from "react-router-dom";
 
 function Login() {
   const [loginFields, setLoginFields] = useState({
@@ -52,10 +53,10 @@ function Login() {
   };
 
   const handleShow = (event) => {
-    if(show == 'show'){
-      setShow('hide');
-    }else{
-      setShow('show');
+    if (show == "show") {
+      setShow("hide");
+    } else {
+      setShow("show");
     }
   };
   const handleOnChange = (event) => {
@@ -163,12 +164,7 @@ function Login() {
           </section>
           <hr />
           <div className="no-account">
-            <a
-              href="https://demo2.posthemes.com/pos_mixy/layout2/en/login?create_account=1"
-              data-link-action="display-register-form"
-            >
-              No account? Create one here
-            </a>
+            <Link to="/create">No account? Create one here</Link>
           </div>
         </section>
       </div>

@@ -23,6 +23,7 @@ import MyAccount from './pages/my-account';
 import DetailBlog from './pages/detail-blog';
 import DetailProduct from './pages/detail-product';
 import PAGES from './graphql/pages';
+import CreateAccount from './pages/create-account';
 
 function App() {
   const { loading, error, data } = useQuery(PAGES);
@@ -34,6 +35,7 @@ function App() {
       <Header1 />
       <Routes>
         <Route path='/' element={<Login />} />
+        <Route path='/create' element={<CreateAccount />} />
       </Routes>
       <Footer1 />
       {/* <Header /> */}
