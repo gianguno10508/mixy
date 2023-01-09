@@ -1,6 +1,8 @@
 import { useMutation } from "@apollo/client";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import CREATE_ACCOUNT from "../graphql/create-account";
+
 
 function CreateAccount() {
   const [createFields, setCreateFields] = useState({
@@ -11,6 +13,7 @@ function CreateAccount() {
     description: "",
     nicename: "",
   });
+  const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState();
   const [show, setShow] = useState("show");
   const [create, { loading: createLoading, error: createError }] = useMutation(
@@ -19,38 +22,24 @@ function CreateAccount() {
       variables: {
         input: {
           username: createFields.email,
+          email: createFields.email,
           password: createFields.password,
-          firstname: createFields.firstname,
-          lastname: createFields.lastname,
+          firstName: createFields.firstname,
+          lastName: createFields.lastname,
           description: createFields.description,
           nicename: createFields.nicename,
         },
       },
       onCompleted: (data) => {
-        console.log(data);
-        // If error.
-        // if (!isEmpty(loginError)) {
-        //   setErrorMessage(loginError.graphQLErrors[0].message);
-        // }
-
-        // const { login } = data;
-        // const authData = {
-        //   authToken: login.authToken,
-        //   user: login.user,
-        // };
-
-        // setAuth(authData);
-        // setLoggedIn(true);
+        navigate("/");
       },
       onError: (error) => {
         if (error) {
-          console.log(error);
           setErrorMessage("Authentication failed.");
         }
       },
     }
   );
-
   const handleCreateAccount = async (event) => {
     event.preventDefault();
     create();
@@ -78,7 +67,13 @@ function CreateAccount() {
             <p>
               Already have an account? <a href="#">Log in instead!</a>
             </p>
-
+            {errorMessage && (
+              <div className="help-block">
+                <ul>
+                  <li className="alert alert-danger">Authentication failed.</li>
+                </ul>
+              </div>
+            )}
             <form
               id="customer-form"
               className="js-customer-form"
@@ -206,7 +201,7 @@ function CreateAccount() {
                           data-text-hide="Hide"
                           onClick={handleShow}
                         >
-                          Show
+                          {show == 'hide' ? <span>Hide</span>: <span>Show</span>}
                         </button>
                       </span>
                     </div>

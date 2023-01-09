@@ -3,16 +3,22 @@ import { useState } from "react";
 import LOGIN from "../graphql/login";
 import "../assets/css/login-styles.css";
 import cartSpinnerGif from "../assets/images/cart-spinner.gif";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { setAuth } from "../untils/functions";
+import { connect } from "react-redux";
+import { actSetAuth } from "../actions";
 
-function Login() {
+
+
+function Login(props) {
   const [loginFields, setLoginFields] = useState({
     email: "",
     password: "",
   });
   const [errorMessage, setErrorMessage] = useState();
   const [show, setShow] = useState("show");
-
+  const navigate = useNavigate();
+  
   const [login, { loading: loginLoading, error: loginError }] = useMutation(
     LOGIN,
     {
@@ -23,20 +29,14 @@ function Login() {
         },
       },
       onCompleted: (data) => {
-        console.log(data);
-        // If error.
-        // if (!isEmpty(loginError)) {
-        //   setErrorMessage(loginError.graphQLErrors[0].message);
-        // }
-
-        // const { login } = data;
-        // const authData = {
-        //   authToken: login.authToken,
-        //   user: login.user,
-        // };
-
-        // setAuth(authData);
-        // setLoggedIn(true);
+        const { login } = data;
+        const authData = {
+          authToken: login.authToken,
+          user: login.user,
+        };
+        setAuth(authData);
+        props.setAuthRedux(authData);
+        navigate("/");
       },
       onError: (error) => {
         if (error) {
@@ -48,7 +48,6 @@ function Login() {
   const handleLogin = async (event) => {
     event.preventDefault();
     setErrorMessage();
-    // Login Mutation.
     login();
   };
 
@@ -171,4 +170,19 @@ function Login() {
     </div>
   );
 }
-export default Login;
+const mapDispatchToProps = (dispatch) => {
+  return {
+      setAuthRedux: (data) => {
+          dispatch(actSetAuth(data));
+      }
+  };
+};
+const mapStateToProps = (state, ownProps) => {
+  return {
+      // datalifeStyle: state.dataLifeStyle,
+      // dataUserLogin: state.dataUserLogin
+  };
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);  

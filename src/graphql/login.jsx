@@ -11,6 +11,8 @@ const LOGIN = gql`
                 email
                 firstName
                 lastName
+                description
+                nicename
             }
         }
     }

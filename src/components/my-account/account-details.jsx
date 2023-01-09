@@ -1,4 +1,7 @@
-const AccountDetail = () => {
+const AccountDetail = ({dataDetailAccount}) => {
+  const handleChange = () =>{
+    console.log('asddf');
+  }
   return (
     <div className="woocommerce-MyAccount-content">
       <div className="woocommerce-notices-wrapper"></div>
@@ -13,6 +16,8 @@ const AccountDetail = () => {
             className="woocommerce-Input woocommerce-Input--text input-text"
             name="account_first_name"
             id="account_first_name"
+            onChange={handleChange}
+            placeholder={dataDetailAccount.firstName}
           />
         </p>
         <p className="woocommerce-form-row woocommerce-form-row--last form-row form-row-last">
@@ -24,6 +29,7 @@ const AccountDetail = () => {
             className="woocommerce-Input woocommerce-Input--text input-text"
             name="account_last_name"
             id="account_last_name"
+            placeholder={dataDetailAccount.lastName}
           />
         </p>
 
@@ -36,6 +42,7 @@ const AccountDetail = () => {
             className="woocommerce-Input woocommerce-Input--email input-text"
             name="account_email"
             id="account_email"
+            placeholder={dataDetailAccount.email}
           />
         </p>
         <p className="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
