@@ -33,7 +33,6 @@ const MainAccount = (props) => {
                         <li onClick={handleLogout}>
                           <Link to="/">Logout</Link>
                         </li>
-                        {/* <Tab>Logout</Tab> */}
                       </TabList>
                     </div>
                     <div className="col-md-8">

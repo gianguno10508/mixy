@@ -142,7 +142,6 @@ function Login(props) {
               </section>
 
               <footer className="form-footer text-sm-center clearfix">
-                <input type="hidden" name="submitLogin" value="1" />
                 <button
                   id="submit-login"
                   className="btn btn-primary"

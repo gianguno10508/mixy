@@ -29,7 +29,7 @@ function Headerwapper(props, showNavbar) {
                     <div className='header-buttons'>
                         <div className='header-login'>
                             {auth !== null?
-                            <Link to='/account'>
+                            <Link to='/my-account'>
                                 <i className="fa-regular fa-user"></i>
                             </Link>
                             :

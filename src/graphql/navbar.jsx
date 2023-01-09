@@ -6,6 +6,7 @@ query NAVBAR ( $locate: MenuLocationEnum! ){
         nodes {
             id
             name
+            slug
             menuItems {
               edges {
                 node {

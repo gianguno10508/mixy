@@ -26,17 +26,22 @@ import PAGES from './graphql/pages';
 import CreateAccount from './pages/create-account';
 
 function App() {
-  const { loading, error, data } = useQuery(PAGES);
+  // const { loading, error, data } = useQuery(PAGES);
 
-  if (loading) return <img className='loading' src={LoadingImg}/>;
-  if (error) return <Page404 />;
+  // if (loading) return <img className='loading' src={LoadingImg}/>;
+  // if (error) return <Page404 />;
   return (
     <div className="App">
       <Header1 />
       <Routes>
-        <Route path='/' element={<Login />} />
+        <Route path='/' element={<DetailBlog />} />
         <Route path='/create' element={<CreateAccount />} />
-        <Route path='/account' element={<MyAccount />} />
+        <Route path='/my-account' element={<MyAccount />} />
+        <Route path='/about-us' element={<AboutUs />} />
+        <Route path='/delivery' element={<Delivery />} />
+        <Route path='/stores' element={<Stores />} />
+        <Route path='/secure-payment' element={<SecurePayment />} />
+        <Route path='/legal-notice' element={<LegalNotice />} />
       </Routes>
       <Footer1 />
       {/* <Header /> */}

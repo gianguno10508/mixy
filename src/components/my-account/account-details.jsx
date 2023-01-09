@@ -1,11 +1,61 @@
+import { useMutation } from "@apollo/client";
+import { useState } from "react";
+import UPDATE_ACCOUNT from "../../graphql/update-user";
+import { isUserLoggedIn } from "../../untils/functions";
+
 const AccountDetail = ({dataDetailAccount}) => {
-  const handleChange = () =>{
-    console.log('asddf');
+  const auth = isUserLoggedIn();
+
+  const [updateFields, setUpdateFields] = useState({
+    email: "",
+    firstname: "",
+    lastname: "",
+    description: "",
+  });
+  const [update, { loading: loginLoading, error: loginError }] = useMutation(
+    UPDATE_ACCOUNT,
+    {
+      variables: {
+        input: {
+          id: auth.user.id,
+          token: auth.authToken,
+          email: updateFields.email,
+          firstName: updateFields.firstname,
+          lastName: updateFields.lastname,
+          description: updateFields.description
+        },
+      },
+      onCompleted: (data) => {
+        console.log(data);
+        // const { login } = data;
+        // const authData = {
+        //   authToken: login.authToken,
+        //   user: login.user,
+        // };
+        // setAuth(authData);
+        // props.setAuthRedux(authData);
+        // navigate("/");
+      },
+      onError: (error) => {
+        if (error) {
+          console.log(error);
+          //setErrorMessage("Authentication failed.");
+        }
+      },
+    }
+  );
+
+  const handleOnChange = (event) => {
+    setUpdateFields({ ...updateFields, [event.target.name]: event.target.value });
+  };
+  const handleSubmitUpdateAccount = (e) =>{
+    e.preventDefault();
+    update();
   }
   return (
     <div className="woocommerce-MyAccount-content">
       <div className="woocommerce-notices-wrapper"></div>
-      <form className="woocommerce-EditAccountForm edit-account">
+      <form className="woocommerce-EditAccountForm edit-account" onSubmit={handleSubmitUpdateAccount}>
         <legend>Account details</legend>
         <p className="woocommerce-form-row woocommerce-form-row--first form-row form-row-first">
           <label htmlFor="account_first_name">
@@ -14,9 +64,10 @@ const AccountDetail = ({dataDetailAccount}) => {
           <input
             type="text"
             className="woocommerce-Input woocommerce-Input--text input-text"
-            name="account_first_name"
+            name="firstname"
             id="account_first_name"
-            onChange={handleChange}
+            onChange={handleOnChange}
+            required
             placeholder={dataDetailAccount.firstName}
           />
         </p>
@@ -27,8 +78,10 @@ const AccountDetail = ({dataDetailAccount}) => {
           <input
             type="text"
             className="woocommerce-Input woocommerce-Input--text input-text"
-            name="account_last_name"
+            name="lastname"
             id="account_last_name"
+            onChange={handleOnChange}
+            required
             placeholder={dataDetailAccount.lastName}
           />
         </p>
@@ -40,8 +93,10 @@ const AccountDetail = ({dataDetailAccount}) => {
           <input
             type="email"
             className="woocommerce-Input woocommerce-Input--email input-text"
-            name="account_email"
+            name="email"
             id="account_email"
+            onChange={handleOnChange}
+            required
             placeholder={dataDetailAccount.email}
           />
         </p>
@@ -50,8 +105,9 @@ const AccountDetail = ({dataDetailAccount}) => {
           <input
             type="date"
             className="woocommerce-Input woocommerce-Input--date input-text"
-            name="account_birthday"
+            name="description"
             id="account_birthday"
+            onChange={handleOnChange}
           />
         </p>
         <button
