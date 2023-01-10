@@ -25,3 +25,23 @@
     margin-top: 50px;
     margin-bottom: 55px;
 }
+.detail-post .author-comment{
+    font-size: 18px;
+    padding: 15px 0;
+    line-height: 1px;
+    text-transform: capitalize;
+}
+.detail-post .date-comment{
+    color: #000;
+}
+.detail-post .content-comment{
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+.detail-post .detail-comment{
+    padding-top: 30px;
+    border-top: 1px solid #ebebeb;
+}
+.detail-post .status-post{
+    padding: 10px 0;
+}

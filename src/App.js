@@ -34,7 +34,7 @@ function App() {
     <div className="App">
       <Header1 />
       <Routes>
-        <Route path='/' element={<Homepage />} />
+        <Route path='/' element={<DetailProduct />} />
         <Route path='/create' element={<CreateAccount />} />
         <Route path='/my-account' element={<MyAccount />} />
         <Route path='/about-us' element={<AboutUs />} />
