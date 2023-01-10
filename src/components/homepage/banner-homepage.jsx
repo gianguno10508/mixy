@@ -1,7 +1,9 @@
-const BannerHomepage = ({banner}) =>{
+const BannerHomepage = ({ banner }) => {
     console.log(banner);
-    return(
-        <p>dffgd</p>
+    return (
+        <>
+            casc
+        </>
     )
 }
 export default BannerHomepage;

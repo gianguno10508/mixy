@@ -1,12 +1,12 @@
-import '../assets/css/single-product.css';
-const SingleProduct = () => {
+import '../assets/css/single-product-copy.css';
+const SingleProductCopy = ({ countdown }) => {
   return (
     <div className="item-product">
       <article
-        className="product-miniature js-product-miniature style_product3"
+        className="product-miniature"
       >
         <div className="img_block">
-          <img class="first-image ls-is-cached lazyloaded" data-src="https://demo2.posthemes.com/pos_mixy/layout2/42-home_default/whitworths-apricots-snack-pack-300g.jpg" src="https://demo2.posthemes.com/pos_mixy/layout2/42-home_default/whitworths-apricots-snack-pack-300g.jpg" alt="Whitworths Apricots Snack..." data-full-size-image-url="https://demo2.posthemes.com/pos_mixy/layout2/42-large_default/whitworths-apricots-snack-pack-300g.jpg" />
+          <img class="first-image" data-src="https://demo2.posthemes.com/pos_mixy/layout2/42-home_default/whitworths-apricots-snack-pack-300g.jpg" src="https://demo2.posthemes.com/pos_mixy/layout2/42-home_default/whitworths-apricots-snack-pack-300g.jpg" alt="Whitworths Apricots Snack..." data-full-size-image-url="https://demo2.posthemes.com/pos_mixy/layout2/42-large_default/whitworths-apricots-snack-pack-300g.jpg" />
           <img class="second-image" data-src="https://demo2.posthemes.com/pos_mixy/layout2/42-home_default/whitworths-apricots-snack-pack-300g.jpg" src="https://demo2.posthemes.com/pos_mixy/layout2/72-home_default/organic-greek-cantaloupe-melon-min-weight-100g.jpg" alt="Whitworths Apricots Snack..." data-full-size-image-url="https://demo2.posthemes.com/pos_mixy/layout2/42-large_default/whitworths-apricots-snack-pack-300g.jpg" />
           <ul className="add-to-links">
             <li>
@@ -14,86 +14,62 @@ const SingleProduct = () => {
                 className="addToWishlist"
                 href="#"
               >
-                <span>Add to wishlist</span>
+                <i className="fa-solid fa-heart"></i>
               </a>
             </li>
             <li className="compare">
               <a
                 href="#"
-                className="poscompare-add compare-button js-poscompare-add"
-                title="Add to compare"
-              >
-                <span>Add to compare</span>
+                className="poscompare-add"
+              ><i className="fa-solid fa-retweet"></i>
               </a>
             </li>
             <li className="quick-view">
               <a
                 className="quick_view"
                 href="#"
-                title="Quick view"
-              >
-                <span>Quick view</span>
+              ><i className="fa-solid fa-eye"></i>
               </a>
             </li>
             <li className="cart">
               <div className="product-add-to-cart">
-                <form
-                  method="post"
-                  className="add-to-cart-or-refresh"
-                >
-                  <input
-                    type="hidden"
-                    name="token"
-                    value="0ffd2a30ac8aebc826ace57e0a6e88ab"
-                  />
-                  <input
-                    type="hidden"
-                    name="id_product"
-                    value="2"
-                    className="product_page_product_id"
-                  />
-                  <input type="hidden" name="qty" value="1" />
-                  <button
-                    className="button ajax_add_to_cart_button add-to-cart btn-default"
-                    data-button-action="add-to-cart"
-                    type="submit"
-                  >
-                    Add to cart
-                  </button>
-                </form>
+                <button
+                  className="button ajax_add_to_cart_button add-to-cart btn-default"
+                  data-button-action="add-to-cart"
+                  type="submit"
+                ><i className="fa-solid fa-bag-shopping"></i>
+                </button>
               </div>
             </li>
           </ul>
 
           <ul className="product-flag">
-            <li className="discount">
-              <span>-20%</span>
-            </li>
             <li className="new">
               <span>New</span>
             </li>
           </ul>
 
           <div className="product-price-and-shipping-top">
-            <span className="discount-percentage discount-product">-20%</span>
+            <span className="discount-percentage">-20%</span>
           </div>
         </div>
-        <div className="product_desc match_height">
+        <div className="product_desc">
           <div className="hook-reviews">
-            <div
-              className="comments_note"
-            >
-              <div className="star_content clearfix">
-                <span className="rating_star"></span>
+            <div className="comments_note" >
+              <div className="star_content">
+                <span className="rating_star">
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                </span>
               </div>
-              <span className="nb-comments">
-                <span>2</span> Review(s)
-              </span>
             </div>
           </div>
           <h3>
             <a
-              href="https://demo2.posthemes.com/pos_mixy/layout2/en/fresh-food/2-9-whitworths-apricots-snack-pack-300g.html#/1-size-100g"
+              href="#"
               className="product_name "
               title="Whitworths Apricots Snack Pack 300g"
             >
@@ -102,21 +78,13 @@ const SingleProduct = () => {
           </h3>
 
           <div className="product-price-and-shipping">
-            <span className="sr-only">Regular price</span>
             <span className="regular-price">$39.90</span>
-
-            <span className="sr-only">Price</span>
-            <span className="price price-sale">
-              $31.92
-            </span>
+            <span className="price price-sale"> $31.92</span>
           </div>
-
-          <div className="variant-links"></div>
-          <div className="countdown">
-            <div className="title_countdown">Hurry Up! Offers ends in:</div>
-            <div
-              className="time_count_down"
-            >
+          {countdown === true &&
+            <div className="countdown">
+              <div className="title_countdown">Hurry Up! Offers ends in:</div>
+              {/* <div className="time_count_down">
               <span
                 className="future_date_10_2 time_countdown is-countdown"
               >
@@ -139,13 +107,15 @@ const SingleProduct = () => {
                   </span>
                 </span>
               </span>
+            </div> */}
             </div>
-          </div>
+          }
           <span id="future_date_10_2" className="id_countdown"></span>
         </div>
       </article>
+
     </div>
   );
 };
 
-export default SingleProduct;
+export default SingleProductCopy;

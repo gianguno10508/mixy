@@ -7,7 +7,6 @@ import SingleProduct from './components/single-product';
 import AboutUs from './pages/about-us';
 import ContactUs from './pages/ContactUs';
 import Delivery from './pages/delivery';
-import Home from './pages/Home';
 import Homepage from './pages/homepage';
 import LegalNotice from './pages/legal-notice';
 import Login from './pages/login';
@@ -22,9 +21,9 @@ function App() {
       {/* <Header /> */}
       {/* <AboutUs /> */}
       {/* <Posts /> */}
-      {/* <Products />
-      <Homepage />
-      <Footer /> */}
+      {/* <Products /> */}
+      {/* <Homepage /> */}
+      {/* <Footer /> */}
       {/* <Login /> */}
       {/* <SingleProduct /> */}
       {/* <Delivery /> */}
@@ -32,10 +31,11 @@ function App() {
       {/* <LegalNotice /> */}
 
       {/* _____ */}
-      {/* <Header1 /> */}
-      {/* <Footer1 /> */}
+      <Header1 />
       {/* <ContactUs /> */}
-      {/* <Home /> */}
+
+      <Homepage />
+      <Footer1 />
     </div>
   );
 }

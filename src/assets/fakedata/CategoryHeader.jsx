@@ -1,95 +1,95 @@
-const headerCategory = {
-    title: 'Fresh Food',
-    image: 'https://demo2.posthemes.com/pos_mixy/layout2/img/cms/v-banner-menu.jpg',
-    categorys: [
-        {
-            titleCategory: 'Fresh Fruit',
-            content: [
-                {
-                    category: 'Bananas'
-                },
-                {
-                    category: 'Bananas'
-                },
-                {
-                    category: 'Bananas'
-                },
-                {
-                    category: 'Bananas'
-                },
-                {
-                    category: 'Bananas'
-                }
+// const headerCategory = {
+//     title: 'Fresh Food',
+//     image: 'https://demo2.posthemes.com/pos_mixy/layout2/img/cms/v-banner-menu.jpg',
+//     categorys: [
+//         {
+//             titleCategory: 'Fresh Fruit',
+//             content: [
+//                 {
+//                     category: 'Bananas'
+//                 },
+//                 {
+//                     category: 'Bananas'
+//                 },
+//                 {
+//                     category: 'Bananas'
+//                 },
+//                 {
+//                     category: 'Bananas'
+//                 },
+//                 {
+//                     category: 'Bananas'
+//                 }
 
-            ]
-        },
-        {
-            titleCategory: 'Fresh Vegetables',
-            content: [
-                {
-                    category: 'Bananas'
-                },
-                {
-                    category: 'Bananas'
-                },
-                {
-                    category: 'Bananas'
-                },
-                {
-                    category: 'Bananas'
-                },
-                {
-                    category: 'Bananas'
-                }
+//             ]
+//         },
+//         {
+//             titleCategory: 'Fresh Vegetables',
+//             content: [
+//                 {
+//                     category: 'Bananas'
+//                 },
+//                 {
+//                     category: 'Bananas'
+//                 },
+//                 {
+//                     category: 'Bananas'
+//                 },
+//                 {
+//                     category: 'Bananas'
+//                 },
+//                 {
+//                     category: 'Bananas'
+//                 }
 
-            ]
-        },
-        {
-            titleCategory: 'Fresh Salad & Dips',
-            content: [
-                {
-                    category: 'Bananas'
-                },
-                {
-                    category: 'Bananas'
-                },
-                {
-                    category: 'Bananas'
-                },
-                {
-                    category: 'Bananas'
-                },
-                {
-                    category: 'Bananas'
-                }
+//             ]
+//         },
+//         {
+//             titleCategory: 'Fresh Salad & Dips',
+//             content: [
+//                 {
+//                     category: 'Bananas'
+//                 },
+//                 {
+//                     category: 'Bananas'
+//                 },
+//                 {
+//                     category: 'Bananas'
+//                 },
+//                 {
+//                     category: 'Bananas'
+//                 },
+//                 {
+//                     category: 'Bananas'
+//                 }
 
-            ]
-        },
-        {
-            titleCategory: 'Fresh Salad & Dips',
-            content: [
-                {
-                    category: 'Bananas'
-                },
-                {
-                    category: 'Bananas'
-                },
-                {
-                    category: 'Bananas'
-                },
-                {
-                    category: 'Bananas'
-                },
-                {
-                    category: 'Bananas'
-                }
+//             ]
+//         },
+//         {
+//             titleCategory: 'Fresh Salad & Dips',
+//             content: [
+//                 {
+//                     category: 'Bananas'
+//                 },
+//                 {
+//                     category: 'Bananas'
+//                 },
+//                 {
+//                     category: 'Bananas'
+//                 },
+//                 {
+//                     category: 'Bananas'
+//                 },
+//                 {
+//                     category: 'Bananas'
+//                 }
 
-            ]
-        },
+//             ]
+//         },
 
-    ]
+//     ]
 
-}
+// }
 const headerCategory2 = {
     title: 'Fresh Vegetables',
     image: null,
@@ -127,4 +127,4 @@ const headerCategory3 = {
     ]
 }
 
-export { headerCategory, headerCategory2, headerCategory3 };
+export { headerCategory2, headerCategory3 };

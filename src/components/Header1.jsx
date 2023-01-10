@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { headerCategory, headerCategory2, headerCategory3 } from '../assets/fakedata/CategoryHeader';
+import { headerCategory2, headerCategory3 } from '../assets/fakedata/CategoryHeader';
 import HeaderBottom from './Header/HeaderBottom';
 import HeaderTop from './Header/HeaderTop';
 import Headerwapper from './Header/Headerwapper';
@@ -59,10 +59,10 @@ function Header1(props) {
                 showNavbar={showDropdown}
                 handleItemClickDropdown={handleItemClickDropdown}
                 scrollDirection={scrollDirection}
-                headerCategory={headerCategory}
                 headerCategory2={headerCategory2}
                 headerCategory3={headerCategory3}
             />
+
         </div>
     );
 }

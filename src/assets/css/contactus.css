@@ -1,3 +1,31 @@
+.page-title-wrapper {
+    padding: 30px 0;
+    margin-bottom: 60px;
+    background: #f5f9ee;
+}
+
+.page-header {
+    color: #1c1e22;
+    font-size: 40px;
+    line-height: 1;
+    font-style: normal;
+    text-transform: none;
+    font-weight: 700;
+    margin: 0;
+}
+
+.breadcrumb_container {
+    margin-top: 15px;
+}
+
+.breadcrumb_container ol {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    column-gap: 15px;
+
+}
+
 .section-contact-us .content-contact-us .left-colum .contact-rich {
     margin-bottom: 32px;
     word-wrap: break-word;
@@ -58,7 +86,7 @@
     margin-bottom: 16px;
 }
 
-.contact-rich h3,
+.form-fields h3,
 .contact-rich h4 {
     font-size: 28px;
     text-transform: capitalize;
@@ -127,4 +155,54 @@
 .map {
     position: relative;
     margin-bottom: 60px;
+}
+
+
+
+@media screen and (max-width: 1200px) {
+    #left-colum {
+        width: 40%;
+    }
+
+    #content-wrapper {
+        width: 60%;
+    }
+
+    .form-control-label {
+        width: 20%;
+    }
+
+    .form-group .col-md-6,
+    .form-group .col-md-9 {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .page-header {
+        font-size: 17px;
+    }
+
+    #left-colum {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    #content-wrapper {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:375px) {
+
+    .form-fields h3,
+    .form-control-label {
+        margin-bottom: 15px;
+    }
+
+    .form-control-label,
+    .form-group .col-md-6,
+    .form-group .col-md-9 {
+        width: 100%;
+    }
 }
