@@ -1,7 +1,14 @@
 import React, { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../../assets/images/header/mixy-responsive-prestashop-theme-logo-1631611858.jpg';
-function Headerwapper({ showNavbar }) {
+import { isUserLoggedIn } from '../../untils/functions';
+import { connect } from "react-redux";
 
+
+
+
+function Headerwapper(props, showNavbar) {
+    const auth = isUserLoggedIn();
     return (
         <div className='header-wapper'>
             <div className='container'>
@@ -17,14 +24,18 @@ function Headerwapper({ showNavbar }) {
                             <input className='search' placeholder='Search for products...' />
                             <i className="fa-solid fa-magnifying-glass"></i>
                         </form>
-
                     </div>
 
                     <div className='header-buttons'>
                         <div className='header-login'>
-                            <a href='#'>
+                            {auth !== null?
+                            <Link to='/my-account'>
                                 <i className="fa-regular fa-user"></i>
-                            </a>
+                            </Link>
+                            :
+                            <Link to='/'>
+                                <i className="fa-regular fa-user"></i>
+                            </Link>}
                         </div>
                         <div className='header-wish'>
                             <div className='number-wish'>
@@ -54,5 +65,15 @@ function Headerwapper({ showNavbar }) {
         </div>
     );
 }
+const mapDispatchToProps = (dispatch) => {
+    return {
+    };
+};
+const mapStateToProps = (state, ownProps) => {
+    return {
+        dataUserLogin: state.userAuth
+    };
+};
 
-export default Headerwapper;
+
+export default connect(mapStateToProps, mapDispatchToProps)(Headerwapper);  

@@ -1,7 +1,13 @@
 import { useQuery } from "@apollo/client";
+import { Link } from "react-router-dom";
 import NAVBAR from "../graphql/navbar";
 
-const Navbar = ({ location, isTitle }) => {
+function convertToSlug(Text) {
+  return Text.toLowerCase()
+             .replace(/ /g, '-')
+             .replace(/[^\w-]+/g, '');
+}
+const Navbar = ({ location, isTitle, classUL }) => {
   const { loading, error, data } = useQuery(NAVBAR, {
     variables: {
       locate: location,
@@ -16,9 +22,9 @@ const Navbar = ({ location, isTitle }) => {
     return (
       <>
         {isTitle && <h3>{title}</h3>}
-        <ul>
+        <ul className={`${classUL}`}>
           {menus.map((e, i) => (
-            <li key={i}>{e.node.label}</li>
+            <li key={i}><Link to={convertToSlug(e.node.label)}>{e.node.label}</Link></li>
           ))}
         </ul>
       </>

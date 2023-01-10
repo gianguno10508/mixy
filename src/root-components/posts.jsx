@@ -6,7 +6,6 @@ const Posts = () => {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
-  if (data) console.log(data);
   return (
     <div className="container">
        <Markup content={data.posts.nodes[0].content} />

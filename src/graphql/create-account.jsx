@@ -1,9 +1,8 @@
 import { gql } from "@apollo/client";
 
-const LOGIN = gql`
-    mutation LOGIN ( $input: LoginInput!) {
-        login(input: $input) {
-            authToken
+const CREATE_ACCOUNT = gql`
+    mutation CREATE_ACCOUNT ( $input: RegisterUserInput!) {
+        registerUser(input: $input) {
             user {
                 id
                 username
@@ -11,11 +10,9 @@ const LOGIN = gql`
                 email
                 firstName
                 lastName
-                description
-                nicename
             }
         }
     }
 `;
 
-export default LOGIN;
+export default CREATE_ACCOUNT;

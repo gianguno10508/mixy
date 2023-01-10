@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styled, { css } from "styled-components";
 import HoverCate from './HoverCate';
 const Wrapper = styled.div`
@@ -137,7 +138,7 @@ function HeaderBottom({ scrollDirection, headerCategory, headerCategory2, header
                                 Hot
                             </span>
                         </a></li>
-                        <li><a href='#'>About us</a></li>
+                        <li><Link to="/about-us">About us</Link></li>
                         <li><a href='#'>Contact us</a></li>
                     </ul>
                 </div>

@@ -1,0 +1,27 @@
+.detail-post{
+    padding: 60px 0;
+}
+.detail-post h3.post_title{
+    font-size: 48px;
+    font-weight: 400;
+    text-transform: capitalize;
+}
+.detail-post .post_meta{
+    margin-bottom: 40px;
+}
+.detail-post .blog_post_content p.meta_author,
+.detail-post .blog_post_content p.meta_date{
+    display: inline-block;
+    padding-right: 10px;
+}
+.detail-post .blog_post_content p.meta_category{
+    display: inline-block;
+}
+.detail-post .blog_post_content_top .post_thumbnail{
+    position: relative;
+    margin-bottom: 30px;
+}
+.detail-post .post_content{
+    margin-top: 50px;
+    margin-bottom: 55px;
+}

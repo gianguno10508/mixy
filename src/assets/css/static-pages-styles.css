@@ -34,3 +34,8 @@
     font-size: .9375rem;
 }
 /*End Store Page*/
+
+/*About us page*/
+.about-us, .secure-payment, .delivery, .legal-notice{
+    padding: 30px 0;
+}
