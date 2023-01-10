@@ -64,6 +64,11 @@
     border-radius: 5px;
 }
 
+.pos_bannerslide .banner-box:hover img {
+    transform: scale(1.1);
+    transition: all 300ms linear;
+}
+
 .pos_bannerslide .banner-box .text-banner {
     position: absolute;
     top: 50%;
@@ -144,3 +149,55 @@
 .banner-left-main .banner-item .banner-content .button a:hover i {
     animation: passing 1.2s linear infinite;
 }
+
+.banner-left-main {
+    position: relative;
+}
+
+.progress-main {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    width: 100%;
+}
+
+.progress {
+    position: relative;
+    height: 5px;
+    width: 100%;
+    border: 1px solid transparent;
+}
+
+.progress .color {
+    position: absolute;
+    background-color: rgba(49, 56, 72, 0.298);
+    width: 0px;
+    height: 20px;
+    animation: progres 6350ms infinite linear;
+}
+
+@keyframes progres {
+    0% {
+        width: 0%;
+    }
+
+    25% {
+        width: 25%;
+    }
+
+    50% {
+        width: 50%;
+    }
+
+    75% {
+        width: 75%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+;

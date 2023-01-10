@@ -66,7 +66,7 @@ function HeaderBottom({ scrollDirection, headerCategory, headerCategory2, header
                             All Cattegories
                             <i className="fa-solid fa-chevron-down"></i>
                         </h3>
-                        <Wrapper visible={visible} ref={assignHeight} height={height}>
+                        <Wrapper className={visible ? 'show-cate' : ''} visible={visible} ref={assignHeight} height={height}>
                             <ul className='menu-content'>
                                 <li className='menu-item bold'>
                                     <a href='#'>

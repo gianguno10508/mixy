@@ -1,5 +1,59 @@
 import React from 'react';
-function PopularCategories({ popularCategories }) {
+import Slider from "react-slick";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+function PopularCategories({ popularCategories, slidesToShow }) {
+    const NextArrow = (props) => {
+        const { className, style, onClick } = props;
+        return (
+            <div
+                className={className}
+                style={{ ...style, display: 'block' }}
+                onClick={onClick}
+            >
+                <i className="fa-solid fa-arrow-right slider_iconbanner_next"></i>
+            </div>
+        );
+    };
+    const PrevArrow = (props) => {
+        const { className, style, onClick } = props;
+        return (
+            <div
+                className={className}
+                style={{ ...style, display: 'block' }}
+                onClick={onClick}
+            >
+                <i class="fa-solid fa-arrow-left slider_iconbanner_prev"></i>
+            </div>
+        );
+    };
+    var settings = {
+        nav: false,
+        dots: false,
+        nextArrow: <NextArrow />,
+        prevArrow: <PrevArrow />,
+        arrows: true,
+        autoplay: false,
+        slidesToShow: slidesToShow,
+        slidesToScroll: 1,
+        infinite: true,
+        speed: 1000,
+        slidesPerRow: 2,
+        responsive: [
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false
+                }
+            },
+
+
+        ]
+
+    };
     return (
         <div className='container'>
             <div className='popular-categories-main'>
@@ -24,6 +78,7 @@ function PopularCategories({ popularCategories }) {
                                     </div>
                                 </div>
                             </div>
+
                         ))
                     }
                 </div>

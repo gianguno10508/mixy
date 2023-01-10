@@ -10,7 +10,6 @@ import Page404 from './pages/404';
 import AboutUs from './pages/about-us';
 import ContactUs from './pages/ContactUs';
 import Delivery from './pages/delivery';
-import Home from './pages/Home';
 import Homepage from './pages/homepage';
 import LegalNotice from './pages/legal-notice';
 import Login from './pages/login';
@@ -27,15 +26,15 @@ import CreateAccount from './pages/create-account';
 import Categories from './root-components/categories';
 
 function App() {
-  const { loading, error, data } = useQuery(PAGES);
+  // const { loading, error, data } = useQuery(PAGES);
 
-  if (loading) return <img className='loading' src={LoadingImg}/>;
-  if (error) return <Page404 />;
+  // if (loading) return <img className='loading' src={LoadingImg} />;
+  // if (error) return <Page404 />;
   return (
     <div className="App">
       <Header1 />
       <Routes>
-        <Route path='/' element={<Categories />} />
+        <Route path='/' element={<Homepage />} />
         <Route path='/create' element={<CreateAccount />} />
         <Route path='/my-account' element={<MyAccount />} />
         <Route path='/about-us' element={<AboutUs />} />
@@ -48,9 +47,9 @@ function App() {
       {/* <Header /> */}
       {/* <AboutUs /> */}
       {/* <Posts /> */}
-      {/* <Products />
-      <Homepage />
-      <Footer /> */}
+      {/* <Products /> */}
+      {/* <Homepage /> */}
+      {/* <Footer /> */}
       {/* <Login /> */}
       {/* <SingleProduct /> */}
       {/* <Delivery /> */}
