@@ -24,17 +24,18 @@ import DetailBlog from './pages/detail-blog';
 import DetailProduct from './pages/detail-product';
 import PAGES from './graphql/pages';
 import CreateAccount from './pages/create-account';
+import Categories from './root-components/categories';
 
 function App() {
-  // const { loading, error, data } = useQuery(PAGES);
+  const { loading, error, data } = useQuery(PAGES);
 
-  // if (loading) return <img className='loading' src={LoadingImg}/>;
-  // if (error) return <Page404 />;
+  if (loading) return <img className='loading' src={LoadingImg}/>;
+  if (error) return <Page404 />;
   return (
     <div className="App">
       <Header1 />
       <Routes>
-        <Route path='/' element={<DetailBlog />} />
+        <Route path='/' element={<Categories />} />
         <Route path='/create' element={<CreateAccount />} />
         <Route path='/my-account' element={<MyAccount />} />
         <Route path='/about-us' element={<AboutUs />} />
