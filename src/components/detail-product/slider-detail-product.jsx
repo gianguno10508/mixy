@@ -24,7 +24,10 @@ const SliderDetailProduct = ({ slidesArr }) => {
       <Slider>
         {slidesArr.map((item, i) => (
           <Slide index={i} key={i}>
-            <ImageWithZoom onClick={() => setOpen(true)} src={item.mediaItemUrl} />
+            <ImageWithZoom
+              onClick={() => setOpen(true)}
+              src={item.mediaItemUrl}
+            />
           </Slide>
         ))}
         <Lightbox
@@ -35,11 +38,16 @@ const SliderDetailProduct = ({ slidesArr }) => {
           }))}
         />
       </Slider>
-      {slidesArr.map((e, index) => (
-        <Dot className="dot-details" slide={index} key={index}>
-          <Image className="product-card-image" src={e.mediaItemUrl} />
-        </Dot>
-      ))}
+      <div className="dot-details">
+        {slidesArr.map((e, index) => (
+          <Dot slide={index} key={index}>
+            <Image className="product-card-image" src={e.mediaItemUrl} />
+          </Dot>
+        ))}
+      </div>
+      <ul class="product-flag">
+        <li class="new">New</li>
+      </ul>
     </CarouselProvider>
   );
 };

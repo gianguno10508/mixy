@@ -5,6 +5,7 @@ const GET_DETAIL_PRODUCT = gql`
     product(id: $idProduct) {
       ... on SimpleProduct {
         id
+        productId
         name
         averageRating
         commentCount
@@ -39,6 +40,7 @@ const GET_DETAIL_PRODUCT = gql`
       }
       ... on VariableProduct {
         id
+        productId
         name
         averageRating
         commentCount

@@ -4,6 +4,7 @@ import FormAddCart from "../components/detail-product/form-add-cart";
 import GET_DETAIL_PRODUCT from "../graphql/detail-product";
 import { useQuery } from "@apollo/client";
 import Page404 from "./404";
+import InformationDetailProduct from "../components/detail-product/information-detail-product";
 
 function DetailProduct() {
   const { loading, error, data } = useQuery(GET_DETAIL_PRODUCT, {
@@ -24,6 +25,7 @@ function DetailProduct() {
               />
             </div>
             <FormAddCart data={data.product} />
+            <InformationDetailProduct data={data.product}/>
           </div>
         </div>
       </div>
