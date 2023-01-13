@@ -41,30 +41,18 @@ function App() {
         <Route path='/my-account' element={<MyAccount />} />
         <Route path='/about-us' element={<AboutUs />} />
         <Route path='/delivery' element={<Delivery />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/create' element={<CreateAccount />} />
         <Route path='/stores' element={<Stores />} />
         <Route path='/secure-payment' element={<SecurePayment />} />
         <Route path='/legal-notice' element={<LegalNotice />} />
         <Route path='/contact-us' element={<ContactUs />} />
         <Route path='/shop-list' element={<Shops />} />
         <Route path='/detail-post/:id' element={<DetailBlog />} />
+        <Route path='/detail-product/:id' element={<DetailProduct />} />
         <Route path='/prices-drop' element={<PricesDrop />} />
       </Routes>
       <Footer1 />
-      {/* <Header /> */}
-      {/* <AboutUs /> */}
-      {/* <Posts /> */}
-      {/* <Products /> */}
-      {/* <Homepage /> */}
-      {/* <Footer /> */}
-      {/* <Login /> */}
-      {/* <SingleProduct /> */}
-      {/* <Delivery /> */}
-      {/* <SecurePayment /> */}
-      {/* <LegalNotice /> */}
-      {/* <Categories /> */}
-      {/* _____ */}
-      {/* <ContactUs />
-      <Home /> */}
     </div>
   );
 }

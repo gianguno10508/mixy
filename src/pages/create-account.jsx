@@ -1,6 +1,6 @@
 import { useMutation } from "@apollo/client";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CREATE_ACCOUNT from "../graphql/create-account";
 
 
@@ -65,7 +65,7 @@ function CreateAccount() {
         <section id="content" className="page-content card card-block ">
           <section className="register-form">
             <p>
-              Already have an account? <a href="#">Log in instead!</a>
+              Already have an account? <Link to={'/login'}>Log in instead!</Link>
             </p>
             {errorMessage && (
               <div className="help-block">
