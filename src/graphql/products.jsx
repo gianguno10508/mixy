@@ -2,37 +2,70 @@ import { gql } from "@apollo/client";
 
 const PRODUCTS = gql`
     query PRODUCTS {
-        products {
-            edges {
+      products(first: 99999) {
+        nodes {
+          ... on SimpleProduct {
+            id
+            name
+            regularPrice
+            salePrice
+            shortDescription
+            featuredImage {
               node {
-                ... on SimpleProduct {
-                  id
-                  name
-                  regularPrice
-                  salePrice
-                  featuredImage {
-                    node {
-                      sourceUrl
-                    }
-                  }
-                  galleryImages {
-                    edges {
-                      node {
-                        sourceUrl
-                      }
-                    }
-                  }
-                  slug
-                  onSale
-                  dateOnSaleFrom
-                  dateOnSaleTo
-                  reviews {
-                    averageRating
-                  }
-                }
+                sourceUrl
               }
             }
+            galleryImages {
+              nodes{
+                sourceUrl
+              }
+            }
+            slug
+            onSale
+            dateOnSaleFrom
+            dateOnSaleTo
+            reviews {
+              averageRating
+            }
+            productCategories {
+              nodes {
+                name
+                slug
+              }
+            }
+          }
+          ... on VariableProduct {
+            id
+            name
+            regularPrice
+            salePrice
+            shortDescription
+            featuredImage {
+              node {
+                sourceUrl
+              }
+            }
+            galleryImages {
+              nodes{
+                sourceUrl
+              }
+            }
+            slug
+            onSale
+            dateOnSaleFrom
+            dateOnSaleTo
+            reviews {
+              averageRating
+            }
+            productCategories {
+              nodes {
+                name
+                slug
+              }
+            }
+          }
         }
+      }
     }
 `;
 export default PRODUCTS;

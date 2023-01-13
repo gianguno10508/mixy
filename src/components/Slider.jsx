@@ -2,7 +2,7 @@ import SingleProductCopy from "./single-product-copy";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-const ConponentsSlider = ({ slidesToShow, countdown, slidesPerRow }) => {
+const ConponentsSlider = ({ slidesToShow, countdown, slidesPerRow, data, index }) => {
     const NextArrow = (props) => {
         const { className, style, onClick } = props;
         return (
@@ -87,24 +87,11 @@ const ConponentsSlider = ({ slidesToShow, countdown, slidesPerRow }) => {
             <div className='special-item'>
                 <div className='owl-stage-outer'>
                     <Slider {...settings}>
-                        {/* <div className="list">
-                            <SingleProductCopy countdown={countdown} />
-                            <SingleProductCopy countdown={countdown} />
-                        </div> */}
-                        <SingleProductCopy countdown={countdown} />
-                        <SingleProductCopy countdown={countdown} />
-                        <SingleProductCopy countdown={countdown} />
-                        <SingleProductCopy countdown={countdown} />
-                        <SingleProductCopy countdown={countdown} />
-                        <SingleProductCopy countdown={countdown} />
-                        <SingleProductCopy countdown={countdown} />
-                        <SingleProductCopy countdown={countdown} />
-                        <SingleProductCopy countdown={countdown} />
-                        <SingleProductCopy countdown={countdown} />
-                        <SingleProductCopy countdown={countdown} />
-                        <SingleProductCopy countdown={countdown} />
+                        {data.map((item, index) => (
+                            <SingleProductCopy countdown={countdown} key={index} data={item} />
+                        ))}
+
                     </Slider>
-                    {/* <SingleProductCopy /> */}
 
                 </div>
             </div>

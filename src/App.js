@@ -24,6 +24,8 @@ import DetailProduct from './pages/detail-product';
 import PAGES from './graphql/pages';
 import CreateAccount from './pages/create-account';
 import Categories from './root-components/categories';
+import Shops from './pages/shops';
+import PricesDrop from './pages/prices-drop';
 
 function App() {
   // const { loading, error, data } = useQuery(PAGES);
@@ -42,6 +44,9 @@ function App() {
         <Route path='/stores' element={<Stores />} />
         <Route path='/secure-payment' element={<SecurePayment />} />
         <Route path='/legal-notice' element={<LegalNotice />} />
+        <Route path='/contact-us' element={<ContactUs />} />
+        <Route path='/shop-list' element={<Shops />} />
+        <Route path='/prices-drop' element={<PricesDrop />} />
       </Routes>
       <Footer1 />
       {/* <Header /> */}
@@ -55,7 +60,7 @@ function App() {
       {/* <Delivery /> */}
       {/* <SecurePayment /> */}
       {/* <LegalNotice /> */}
-
+      {/* <Categories /> */}
       {/* _____ */}
       {/* <ContactUs />
       <Home /> */}

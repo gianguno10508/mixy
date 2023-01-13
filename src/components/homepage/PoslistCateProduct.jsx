@@ -1,10 +1,9 @@
 import { useQuery } from '@apollo/client';
 import React from 'react';
-import CATEGORIES from '../../graphql/categories';
 import ConponentsSlider from '../Slider';
 
 
-function PoslistCateProduct({ title, description, slidesToShow, image, slidesPerRow, category }) {
+function PoslistCateProduct({ title, description, slidesToShow, image, slidesPerRow, category, data }) {
     const cate = [
         { title: 'Berries & Cherries' },
         { title: 'Grapes' },
@@ -57,6 +56,7 @@ function PoslistCateProduct({ title, description, slidesToShow, image, slidesPer
                             <ConponentsSlider
                                 slidesToShow={slidesToShow}
                                 slidesPerRow={slidesPerRow}
+                                data={data}
                             />
                         </div>
                     </div>

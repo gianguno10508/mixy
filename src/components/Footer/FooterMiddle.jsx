@@ -22,14 +22,14 @@ function FooterMiddle(props) {
                                     <div className="col-info col-xs-12 col-sm-6 col-md-6 col-lg-3">
                                         <div className="box_info">
                                             <i className="fa-solid fa-money-bill-wave"></i>
-                                            <div class="txt_info">
+                                            <div className="txt_info">
                                                 <h2>Best Price Guarantee</h2>
                                                 <p>If You Find a Lower Price</p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-info col-xs-12 col-sm-6 col-md-6 col-lg-3">
-                                        <div class="box_info">
+                                    <div className="col-info col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                                        <div className="box_info">
                                             <i className="fa-solid fa-gift"></i>
                                             <div className="txt_info">
                                                 <h2>Free Curbside Pickup</h2>
@@ -69,7 +69,7 @@ function FooterMiddle(props) {
 
                         </div>
                         <div className='col-md-3 links footer_block'>
-                            <Navbar location={"SECONDARY_MENU"} isTitle={true} classUL={'footer_list'}/>
+                            <Navbar location={"SECONDARY_MENU"} isTitle={true} classUL={'footer_list'} />
                         </div>
                         <div className='col-md-3 links footer_block'>
                             <Navbar location={"FOOTER_MENU"} isTitle={true} classUL={'footer_list'} />
