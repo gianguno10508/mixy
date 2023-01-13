@@ -28,10 +28,10 @@ import Shops from './pages/shops';
 import PricesDrop from './pages/prices-drop';
 
 function App() {
-  const { loading, error, data } = useQuery(PAGES);
+  // const { loading, error, data } = useQuery(PAGES);
 
-  if (loading) return <img className='loading' src={LoadingImg} />;
-  if (error) return <Page404 />;
+  // if (loading) return <img className='loading' src={LoadingImg} />;
+  // if (error) return <Page404 />;
   return (
     <div className="App">
       <Header1 />
@@ -46,6 +46,7 @@ function App() {
         <Route path='/legal-notice' element={<LegalNotice />} />
         <Route path='/contact-us' element={<ContactUs />} />
         <Route path='/shop-list' element={<Shops />} />
+        <Route path='/detail-post/:id' element={<DetailBlog />} />
         <Route path='/prices-drop' element={<PricesDrop />} />
       </Routes>
       <Footer1 />

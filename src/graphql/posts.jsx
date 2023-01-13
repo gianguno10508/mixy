@@ -4,6 +4,8 @@ const POSTS = gql`
     query POSTS {
         posts {
             nodes {
+              id
+              postId
               title
               date
               author {
@@ -12,6 +14,11 @@ const POSTS = gql`
                 }
               }
               content
+              featuredImage {
+                node {
+                  mediaItemUrl
+                }
+              }
             }
         }
     }

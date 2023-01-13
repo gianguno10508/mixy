@@ -15,6 +15,7 @@ function DetailProduct() {
   if (loading) return <p>Loading...</p>;
   if (error) return <Page404 />;
   if (data) {
+    console.log(data);
     return (
       <div className="detail-product">
         <div className="container">
