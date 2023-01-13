@@ -18,17 +18,10 @@ const Homepage = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
   if (data) {
-<<<<<<< HEAD
-    products = data.products.nodes
-    console.log(products);
-    return (
-      <div className='section-home-page'>
-=======
     products = data.products.nodes;
     // console.log(products);
     return (
       <div className="section-home-page">
->>>>>>> 0ef096cd673cd57479d1ea9a4893ae06ec83b893
         {/* {datab.filter(ite => ite.isSlider.includes('Yes')).map(item => (
           <p>{item.title}</p>
         ))
