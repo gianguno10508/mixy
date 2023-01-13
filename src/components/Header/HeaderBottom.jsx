@@ -132,7 +132,7 @@ function HeaderBottom({ scrollDirection, headerCategory, headerCategory2, header
                             onClick={(event) => handleItemClickDropdown(event)}>
                             <h5>Menu</h5><i className="fa-solid fa-arrow-left-long"></i>
                         </li>
-                        <li><a href='#'>Home</a></li>
+                        <li><Link to={'/'}>Home</Link></li>
                         <li><a href='#'>Shop List
                             <span className='menu-subtitle'>
                                 Hot

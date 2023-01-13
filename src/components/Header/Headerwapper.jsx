@@ -16,7 +16,7 @@ function Headerwapper(props, showNavbar) {
                 <div className='header-wapper-inner d-flex'>
 
                     <div className='header-logo'>
-                        <img src={logo} alt='logo' />
+                        <Link to={'/'}><img src={logo} alt='logo' /></Link>
                     </div>
 
                     <div className='header-search'>
