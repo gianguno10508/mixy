@@ -1,14 +1,17 @@
 import { gql } from "@apollo/client";
 
 const GET_DETAIL_POST = gql`
-  query GET_DETAIL_POST($idPage: ID!) {
-    post(id: $idPage) {
+  query GET_DETAIL_POST($idPost: ID!) {
+    post(id: $idPost) {
+      id
+      postId
       author {
         node {
           firstName
           lastName
           name
           username
+          email
         }
       }
       categories {

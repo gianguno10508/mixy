@@ -445,6 +445,10 @@ a:hover,
 .social-sharing li a:hover {
   color: #15bd68;
 }
+.h6, h6{
+  font-size: 0.9375rem;
+}
+
 
 
 
