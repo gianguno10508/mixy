@@ -40,6 +40,16 @@ const PRODUCTS = gql`
             regularPrice
             salePrice
             shortDescription
+            variations{
+              nodes{
+                id
+                name
+                description
+                regularPrice
+                salePrice
+                slug
+              }
+            }
             featuredImage {
               node {
                 sourceUrl

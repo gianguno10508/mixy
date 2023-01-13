@@ -6,7 +6,7 @@ import LeftColumn from './PageListProduct/LeftColumn';
 import RightColumn from './PageListProduct/RightColumn';
 function ComponentsListProduct({ pathname, dataPricesDrop, searchfilters }) {
     const [productCategory, setproductCategory] = useState([]);
-    console.log(productCategory);
+    // console.log(productCategory);
     const datalist = dataPricesDrop.filter(ite => ite.onSale === true);
     const listSize = [
         { size: 100 },
@@ -14,6 +14,7 @@ function ComponentsListProduct({ pathname, dataPricesDrop, searchfilters }) {
         { size: 500 },
         { size: 1000 },
     ]
+
     const { loading, error, data } = useQuery(CATEGORIES);
     var listCategory;
     if (loading) return <p>Loading......</p>;
@@ -30,9 +31,9 @@ function ComponentsListProduct({ pathname, dataPricesDrop, searchfilters }) {
         } else {
             setproductCategory(productCategory.filter(id => id !== e.target.value));
 
-
         }
     };
+
 
     return (
         <div className='container'>
@@ -47,6 +48,7 @@ function ComponentsListProduct({ pathname, dataPricesDrop, searchfilters }) {
                     />
                     <RightColumn
                         data={datalist}
+                        productCategory={productCategory}
                     />
                 </div>
             </div>

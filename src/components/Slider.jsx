@@ -2,7 +2,7 @@ import SingleProductCopy from "./single-product-copy";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-const ConponentsSlider = ({ slidesToShow, countdown, slidesPerRow, data, index }) => {
+const ConponentsSlider = ({ slidesToShow, countdown, slidesPerRow, data }) => {
     const NextArrow = (props) => {
         const { className, style, onClick } = props;
         return (
@@ -23,7 +23,7 @@ const ConponentsSlider = ({ slidesToShow, countdown, slidesPerRow, data, index }
                 style={{ ...style, display: 'block' }}
                 onClick={onClick}
             >
-                <i class="fa-solid fa-arrow-left slider_iconbanner_prev"></i>
+                <i className="fa-solid fa-arrow-left slider_iconbanner_prev"></i>
             </div>
         );
     };
