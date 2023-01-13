@@ -3,6 +3,7 @@
     background: #fff;
     border: none;
     z-index: 1;
+    cursor: pointer;
 }
 
 .item-product .product-miniature .img_block {
@@ -21,6 +22,7 @@
     position: absolute;
     left: 0;
     top: 0;
+    height: 100%;
 }
 
 .item-product .product-miniature:hover .img_block .second-image {
@@ -39,6 +41,8 @@
     z-index: 2;
     margin: 0;
 }
+
+
 
 .item-product .product-miniature .img_block .add-to-links li {
     display: inline-flex;
@@ -276,4 +280,101 @@
     color: #535456;
     line-height: 18px;
     margin-bottom: 20px;
+}
+
+.item-product .product-miniature .img_block .links-top {
+    bottom: 50px;
+    gap: 8px;
+}
+
+.item-product .row {
+    padding: 30px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.product-miniature .product_desc .product-content {
+    display: block;
+    padding: 25px 0;
+    margin: 0;
+}
+
+.product-miniature .product_desc .button-list {
+    width: auto;
+    height: auto;
+    font-size: 13px;
+    padding: 0 7px;
+    line-height: 40px;
+    height: 40px;
+    border-radius: 30px;
+    opacity: 1;
+    visibility: visible;
+    -webkit-transform: none;
+    transform: none;
+    text-transform: capitalize;
+    position: static;
+    font-weight: 700;
+    box-shadow: none;
+    color: #fff;
+    min-width: 200px;
+    box-shadow: none;
+    border: none;
+    cursor: pointer;
+    background: #15bd68;
+    transition: all 300ms ease;
+
+}
+
+.product-miniature .product_desc .button-list i {
+    font-size: 0px;
+}
+
+.product-miniature .product_desc .button-list:hover {
+    font-size: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.product-miniature .product_desc .button-list:hover i {
+    font-size: 20px;
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        -webkit-transform: scale3d(.3, .3, .3);
+        transform: scale3d(.3, .3, .3)
+    }
+
+    50% {
+        opacity: 1
+    }
+}
+
+.zoomIn {
+    animation-name: zoomIn
+}
+
+.animated {
+    animation-duration: 1s;
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(10%, 0, 0);
+        transform: translate3d(10%, 0, 0)
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none
+    }
+}
+
+.fadeInRight {
+    animation-name: fadeInRight
 }

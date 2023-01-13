@@ -1,10 +1,11 @@
 import React from 'react';
+import { useLocation, useParams } from 'react-router-dom';
 import '../assets/css/contactus.css';
 import Breadcrumb from '../root-components/Breadcrumb';
 
 function ContactUs() {
-    // const { pathname } = useLocation();
-    const pathname = 'Contact Us'
+    const { pathname } = useLocation();
+
     return (
         <>
             <Breadcrumb pathname={pathname} />

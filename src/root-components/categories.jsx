@@ -6,11 +6,12 @@ const Categories = () => {
     var categories;
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error : {error.message}</p>;
-    if (data){
+    if (data) {
         categories = data.productCategories.nodes;
+        console.log(data);
         return (
             <ul>
-                {categories.map((e,i)=>(
+                {categories.map((e, i) => (
                     <li key={i}>{e.name}</li>
                 ))}
             </ul>

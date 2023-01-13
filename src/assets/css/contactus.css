@@ -4,6 +4,10 @@
     background: #f5f9ee;
 }
 
+.wrapper-background {
+    background: url(../images/header/bg_breadcrumb.jpg);
+}
+
 .page-header {
     color: #1c1e22;
     font-size: 40px;

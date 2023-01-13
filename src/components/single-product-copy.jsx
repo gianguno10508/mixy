@@ -1,17 +1,23 @@
+import { Markup } from 'interweave';
 import '../assets/css/single-product-copy.css';
-const SingleProductCopy = ({ countdown }) => {
+const SingleProductCopy = ({ countdown, showGird, data }) => {
   return (
     <div className="item-product">
       <article
-        className="product-miniature"
+        className={`product-miniature ${showGird == 'list' ? 'row ' : ''}`}
       >
-        <div className="img_block">
-          <img class="first-image" data-src="https://demo2.posthemes.com/pos_mixy/layout2/42-home_default/whitworths-apricots-snack-pack-300g.jpg" src="https://demo2.posthemes.com/pos_mixy/layout2/42-home_default/whitworths-apricots-snack-pack-300g.jpg" alt="Whitworths Apricots Snack..." data-full-size-image-url="https://demo2.posthemes.com/pos_mixy/layout2/42-large_default/whitworths-apricots-snack-pack-300g.jpg" />
-          <img class="second-image" data-src="https://demo2.posthemes.com/pos_mixy/layout2/42-home_default/whitworths-apricots-snack-pack-300g.jpg" src="https://demo2.posthemes.com/pos_mixy/layout2/72-home_default/organic-greek-cantaloupe-melon-min-weight-100g.jpg" alt="Whitworths Apricots Snack..." data-full-size-image-url="https://demo2.posthemes.com/pos_mixy/layout2/42-large_default/whitworths-apricots-snack-pack-300g.jpg" />
-          <ul className="add-to-links">
+        <div className={`img_block ${showGird == 'list' ? 'col-xs-4 col-sm-4 col-md-4 col-lg-4' : ''}`}>
+          {data.featuredImage.node &&
+            <img className="first-image" src={data.featuredImage.node.sourceUrl} alt="" />
+          }
+          {
+            data.galleryImages.nodes &&
+            <img className="second-image" src={data.galleryImages.nodes[3].sourceUrl} alt="" />
+          }
+          <ul className={`add-to-links ${showGird == 'list' ? 'links-top' : ''}`}>
             <li>
               <a
-                className="addToWishlist"
+                className={`addToWishlist `}
                 href="#"
               >
                 <i className="fa-solid fa-heart"></i>
@@ -31,16 +37,29 @@ const SingleProductCopy = ({ countdown }) => {
               ><i className="fa-solid fa-eye"></i>
               </a>
             </li>
-            <li className="cart">
-              <div className="product-add-to-cart">
-                <button
-                  className="button ajax_add_to_cart_button add-to-cart btn-default"
-                  data-button-action="add-to-cart"
-                  type="submit"
-                ><i className="fa-solid fa-bag-shopping"></i>
-                </button>
-              </div>
-            </li>
+            {showGird == 'list' ?
+              (<li className="cart" style={{ display: 'none' }}>
+                <div className="product-add-to-cart">
+                  <button
+                    className="button ajax_add_to_cart_button add-to-cart btn-default"
+                    data-button-action="add-to-cart"
+                    type="submit"
+                  ><i className="fa-solid fa-bag-shopping"></i>
+                  </button>
+                </div>
+              </li>
+              ) : (<li className="cart" style={{ display: 'block' }}>
+                <div className="product-add-to-cart">
+                  <button
+                    className="button ajax_add_to_cart_button add-to-cart btn-default"
+                    data-button-action="add-to-cart"
+                    type="submit"
+                  ><i className="fa-solid fa-bag-shopping"></i>
+                  </button>
+                </div>
+              </li>)
+            }
+
           </ul>
 
           <ul className="product-flag">
@@ -50,10 +69,15 @@ const SingleProductCopy = ({ countdown }) => {
           </ul>
 
           <div className="product-price-and-shipping-top">
-            <span className="discount-percentage">-20%</span>
+            {
+              data.salePrice ? (
+                <span className="discount-percentage">{Math.floor(100 - (data.salePrice.slice(1) / data.regularPrice.slice(1)) * 100)}%</span>
+              ) : null
+            }
+
           </div>
         </div>
-        <div className="product_desc">
+        <div className={`product_desc ${showGird == 'list' ? 'col-xs-8 col-sm-8 col-md-8 col-lg-8' : ''}`}>
           <div className="hook-reviews">
             <div className="comments_note" >
               <div className="star_content">
@@ -73,14 +97,25 @@ const SingleProductCopy = ({ countdown }) => {
               className="product_name "
               title="Whitworths Apricots Snack Pack 300g"
             >
-              Whitworths Apricots Snack Pack 300g
+              {data.name}
             </a>
           </h3>
 
           <div className="product-price-and-shipping">
-            <span className="regular-price">$39.90</span>
-            <span className="price price-sale"> $31.92</span>
+            <span className="regular-price">{data.regularPrice}</span>
+            <span className="price price-sale"> {data.salePrice}</span>
           </div>
+          {showGird == 'list' &&
+            <div className="product-content">
+              <Markup content={data.shortDescription} />
+            </div>
+          }
+          {showGird == 'list' &&
+            <button className="button-list" type="submit">
+              Add to cart
+              <i className="fa-solid fa-bag-shopping"></i>
+            </button>
+          }
           {countdown === true &&
             <div className="countdown">
               <div className="title_countdown">Hurry Up! Offers ends in:</div>
@@ -112,9 +147,9 @@ const SingleProductCopy = ({ countdown }) => {
           }
           <span id="future_date_10_2" className="id_countdown"></span>
         </div>
-      </article>
+      </article >
 
-    </div>
+    </div >
   );
 };
 
