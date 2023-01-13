@@ -1,6 +1,8 @@
 import { Markup } from 'interweave';
+import { Link } from 'react-router-dom';
 import '../assets/css/single-product-copy.css';
 const SingleProductCopy = ({ countdown, showGird, data }) => {
+  console.log(data);
   return (
     <div className="item-product">
       <article
@@ -8,11 +10,11 @@ const SingleProductCopy = ({ countdown, showGird, data }) => {
       >
         <div className={`img_block ${showGird == 'list' ? 'col-xs-4 col-sm-4 col-md-4 col-lg-4' : ''}`}>
           {data.featuredImage.node &&
-            <img className="first-image" src={data.featuredImage.node.sourceUrl} alt="" />
+            <Link to={`/detail-product/${data.id}`}><img className="first-image" src={data.featuredImage.node.sourceUrl} alt="" /></Link>
           }
           {
             data.galleryImages.nodes &&
-            <img className="second-image" src={data.galleryImages.nodes[3].sourceUrl} alt="" />
+            <Link to={`/detail-product/${data.id}`}><img className="second-image" src={data.galleryImages.nodes[3].sourceUrl} alt="" /></Link>
           }
           <ul className={`add-to-links ${showGird == 'list' ? 'links-top' : ''}`}>
             <li>
@@ -69,12 +71,22 @@ const SingleProductCopy = ({ countdown, showGird, data }) => {
           </ul>
 
           <div className="product-price-and-shipping-top">
-            {
+
+            {/* {
               data.salePrice ? (
                 <span className="discount-percentage">{Math.floor(100 - (data.salePrice.slice(1) / data.regularPrice.slice(1)) * 100)}%</span>
-              ) : null
-            }
+              ) : (null)
+            } */}
+            {
+              data.variations ? (
+                <span className="discount-percentage">{Math.floor(100 - (data.variations.nodes[0].salePrice.slice(1) / data.variations.nodes[0].regularPrice.slice(1)) * 100)}%</span>
+              ) : (
+                data.salePrice ? (
+                  <span className="discount-percentage">{Math.floor(100 - (data.salePrice.slice(1) / data.regularPrice.slice(1)) * 100)}%</span>
+                ) : (null)
+              )
 
+            }
           </div>
         </div>
         <div className={`product_desc ${showGird == 'list' ? 'col-xs-8 col-sm-8 col-md-8 col-lg-8' : ''}`}>
@@ -92,19 +104,28 @@ const SingleProductCopy = ({ countdown, showGird, data }) => {
             </div>
           </div>
           <h3>
-            <a
-              href="#"
+            <Link
+              to={`/detail-product/${data.id}`}
               className="product_name "
               title="Whitworths Apricots Snack Pack 300g"
             >
               {data.name}
-            </a>
+            </Link>
           </h3>
+          {
+            data.variations ? (
+              <div className="product-price-and-shipping">
+                <span className="regular-price">{data.variations.nodes[0].regularPrice}</span>
+                <span className="price price-sale"> {data.variations.nodes[0].salePrice}</span>
+              </div>
+            ) : (
+              <div className="product-price-and-shipping">
+                <span className="regular-price">{data.regularPrice}</span>
+                <span className="price price-sale"> {data.salePrice}</span>
+              </div>
+            )
+          }
 
-          <div className="product-price-and-shipping">
-            <span className="regular-price">{data.regularPrice}</span>
-            <span className="price price-sale"> {data.salePrice}</span>
-          </div>
           {showGird == 'list' &&
             <div className="product-content">
               <Markup content={data.shortDescription} />

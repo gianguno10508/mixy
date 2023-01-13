@@ -26,7 +26,6 @@ const Homepage = () => {
           <p>{item.title}</p>
         ))
         } */}
-        {/* <BannerHomepage banner={data.page.homepage.banner} /> */}
         <Banner />
         <PopularCategories slidesToShow={8} />
         <PosSpecialProducts

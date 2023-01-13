@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import FilterProduct from '../filter-product';
 import SingleProductCopy from '../single-product-copy';
 
-function RightColumn({ data }) {
+function RightColumn({ data, productCategory }) {
     const [showGird, setshowGrid] = useState('grid')
     const handClickShowGrid = (event) => {
         if (showGird == 'grid') {
@@ -21,8 +21,15 @@ function RightColumn({ data }) {
             event.stopPropagation();
         }
     };
+
+    const test = {
+
+    }
     // _____Filter_____
     const [dataProduct, setdataProduct] = useState(data)
+    const [dt, setdt] = useState()
+    console.log(dataProduct);
+
     const lengthProduct = dataProduct.length;
     const sortPlayers = (selectEvent) => {
         const options = {
@@ -33,6 +40,22 @@ function RightColumn({ data }) {
         };
         setdataProduct(options[selectEvent.target.value]);
     };
+
+    // ______category_____
+    useEffect(() => {
+        if (productCategory.length === 0) {
+            setdt(data);
+        } else {
+            setdt(
+                data.filter(movie =>
+                    productCategory.some(categoty => [movie.name].flat().includes(categoty))
+                )
+            );
+        }
+    }, [productCategory]);
+
+    console.log(productCategory);
+    console.log('list', dt);
 
     const [pageNumber, setPageNumber] = useState(0);
     const usersperPage = 7;
@@ -66,6 +89,7 @@ function RightColumn({ data }) {
                     lengthProduct={lengthProduct}
 
                 />
+
                 <div className='product-list-content'>
                     <div className={`row product-content-wapper ${showGird}`}>
                         {displayUsers}
