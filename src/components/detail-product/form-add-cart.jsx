@@ -1,9 +1,8 @@
 import { Markup } from "interweave";
 import { useState } from "react";
-import { Modal } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import Payment from "../../assets/images/payment.png";
 import ReviewStar from "../../root-components/review-star";
-import StarRating from "../../root-components/star-rating";
 
 const FormAddCart = ({ data }) => {
   const [isActive, setIsActive] = useState(0);
@@ -41,7 +40,7 @@ const FormAddCart = ({ data }) => {
   const callback = (payload) => {
     setStar(payload);
   };
-  
+
   return (
     <div className="col-lg-6 col-md-6 col-sm-12 col-right-product-details">
       {/* <Modal
@@ -149,10 +148,10 @@ const FormAddCart = ({ data }) => {
           </div>
           <ul className="comments_advices">
             <li>
-              <a href="#" className="reviews">
+              <Link className="reviews" to={"#product_comments_block_tab"}>
                 <i className="fa-regular fa-message"></i>
                 Read reviews (<span>{data.commentCount}</span>)
-              </a>
+              </Link>
             </li>
             <li>
               <a

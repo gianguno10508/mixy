@@ -1,4 +1,6 @@
 import {
+  ButtonBack,
+  ButtonNext,
   CarouselProvider,
   Dot,
   Image,
@@ -13,6 +15,13 @@ import { useState } from "react";
 
 const SliderDetailProduct = ({ slidesArr }) => {
   const [open, setOpen] = useState(false);
+  const [isHover, setIsHover] = useState(false);
+  const handleHoverIn = () => {
+    setIsHover(true);
+  };
+  const handleHoverOut = () => {
+    setIsHover(false);
+  };
   return (
     <CarouselProvider
       naturalSlideWidth={60}
@@ -38,6 +47,24 @@ const SliderDetailProduct = ({ slidesArr }) => {
           }))}
         />
       </Slider>
+      <div className="button-action-slider">
+        {isHover ? (
+          <ButtonBack className="button-action ishover">
+            <i className="fa-solid fa-arrow-left"></i>
+          </ButtonBack>
+        ) : (
+          <ButtonBack className="button-action">
+            <i className="fa-solid fa-arrow-left"></i>
+          </ButtonBack>
+        )}
+        <ButtonNext
+          className="button-action"
+          onMouseEnter={handleHoverIn}
+          onMouseLeave={handleHoverOut}
+        >
+          <i className="fa-solid fa-arrow-right"></i>
+        </ButtonNext>
+      </div>
       <div className="dot-details">
         {slidesArr.map((e, index) => (
           <Dot slide={index} key={index}>

@@ -289,6 +289,10 @@
 .detail-product .horizontalSlider___281Ls{
     max-height: 500px;
 }
+.detail-product .horizontalSlider___281Ls:hover + .button-action-slider>.button-action{
+    opacity: 1 !important;
+    transition: all 300ms linear;
+}
 .detail-product .carousel__dot{
     margin: 0 5px;
     border: 1px solid #e5e5e5;
@@ -589,4 +593,50 @@
 }
 i.fa-solid.fa-star{
     color: #F9BF00;
+}
+
+.detail-product .button-action-slider .button-action{
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 5px 13.5px 1.5px rgb(0 0 0 / 12%);
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    color: #606164;
+    position: absolute;
+    top: 40%;
+    transform: translate(0,-100%);
+    opacity: 0;
+    transition: all 300ms linear;
+}
+.detail-product .carousel__back-button{
+    left: 45px;
+}
+.detail-product .carousel__back-button:hover,
+.detail-product .carousel__next-button:hover{
+    opacity: 1;
+    transition: all 300ms linear;
+    background: #15bd68;
+    border: 1px solid transparent;
+    color: #fff;
+}
+.detail-product .carousel__back-button:hover + .carousel__next-button,
+.detail-product .carousel__next-button:hover + .carousel__back-button{
+    opacity: 1;
+}
+.detail-product .carousel__next-button{
+    right: 45px;
+}
+.ishover{
+    opacity: 1 !important;
+}
+
+
+
+
+@media (max-width: 767px){
+    .detail-product .carousel{
+        margin-bottom: 30px;
+    }
 }
