@@ -28,15 +28,15 @@ import Shops from './pages/shops';
 import PricesDrop from './pages/prices-drop';
 
 function App() {
-  // const { loading, error, data } = useQuery(PAGES);
+  const { loading, error, data } = useQuery(PAGES);
 
-  // if (loading) return <img className='loading' src={LoadingImg} />;
-  // if (error) return <Page404 />;
+  if (loading) return <img className='loading' src={LoadingImg} />;
+  if (error) return <Page404 />;
   return (
     <div className="App">
       <Header1 />
       <Routes>
-        <Route path='/' element={<DetailProduct />} />
+        <Route path='/' element={<Homepage />} />
         <Route path='/create' element={<CreateAccount />} />
         <Route path='/my-account' element={<MyAccount />} />
         <Route path='/about-us' element={<AboutUs />} />
