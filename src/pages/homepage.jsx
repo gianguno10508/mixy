@@ -19,15 +19,13 @@ const Homepage = () => {
   if (error) return <p>Error : {error.message}</p>;
   if (data) {
     products = data.products.nodes
-    // console.log(products);
+    console.log(products);
     return (
       <div className='section-home-page'>
-
         {/* {datab.filter(ite => ite.isSlider.includes('Yes')).map(item => (
           <p>{item.title}</p>
         ))
         } */}
-        {/* <BannerHomepage banner={data.page.homepage.banner} /> */}
         <Banner />
         <PopularCategories slidesToShow={8} />
         <PosSpecialProducts

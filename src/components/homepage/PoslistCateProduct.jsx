@@ -32,7 +32,7 @@ function PoslistCateProduct({ title, description, slidesToShow, image, slidesPer
                     </div>
                 </div>
                 <div className={`content-listcate ${category === true ? 'content-tabcate' : ''}`}>
-                    <div class="col-left">
+                    <div className="col-left">
                         {
                             category &&
                             <ul className='tab_cates'>
@@ -47,7 +47,7 @@ function PoslistCateProduct({ title, description, slidesToShow, image, slidesPer
                             </ul>
                         }
 
-                        <div class="banner-box">
+                        <div className="banner-box">
                             <a href="#"><img src={image} alt="" /></a>
                         </div>
                     </div>

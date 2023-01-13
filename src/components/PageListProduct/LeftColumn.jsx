@@ -23,11 +23,11 @@ function LeftColumn({ pathname, searchfilters, listCategory, listSize, handleCha
 
                         <div className='filter-price facet clearfix'>
                             <p className="h6 facet-title hidden-sm-down">Price</p>
-                            <MultiRangeSlider
+                            {/* <MultiRangeSlider
                                 min={0}
                                 max={1000}
                                 onChange={({ min, max }) => console.log(`min = ${min}, max = ${max}`)}
-                            />
+                            /> */}
                         </div>
                         <div className='filter-size facet clearfix'>
                             <p className="h6 facet-title hidden-sm-down">Size</p>
