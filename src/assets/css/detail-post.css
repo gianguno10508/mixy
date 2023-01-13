@@ -31,7 +31,8 @@
     line-height: 1px;
     text-transform: capitalize;
 }
-.detail-post .date-comment{
+.detail-post .date-comment,
+.detail-post .author-comment{
     color: #000;
 }
 .detail-post .content-comment{

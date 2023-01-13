@@ -1,4 +1,5 @@
 import { Markup } from "interweave";
+import FormatDate from "../../root-components/format-date";
 
 const CommentArea = ({ data }) => {
   return (
@@ -9,7 +10,7 @@ const CommentArea = ({ data }) => {
           <>
             <li className="detail-comment" key={i}>
               <span className="author-comment">{e.author.node.name}</span>
-              <span className="date-comment"> On {e.date}</span>
+              <span className="date-comment"> On <FormatDate dateFormat={e.date} /></span>
               <p className="email-comment">{e.author.node.email}</p>
               <p className="content-comment">
                 <Markup content={e.content} />

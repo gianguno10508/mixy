@@ -26,6 +26,12 @@ const GET_DETAIL_PRODUCT = gql`
             commentId
             content
             date
+            author {
+              node {
+                id
+                name
+              }
+            }
           }
         }
         slug
@@ -61,6 +67,12 @@ const GET_DETAIL_PRODUCT = gql`
             commentId
             content
             date
+            author {
+              node {
+                id
+                name
+              }
+            }
           }
         }
         slug

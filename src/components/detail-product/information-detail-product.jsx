@@ -27,7 +27,7 @@ const InformationDetailProduct = ({data}) => {
             <ExtraTabDetailProduct />
           </TabPanel>
           <TabPanel>
-            <ReviewTabDetailProduct />
+            <ReviewTabDetailProduct data={data}/>
           </TabPanel>
         </Tabs>
       </div>

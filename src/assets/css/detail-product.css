@@ -578,3 +578,15 @@
     margin-top: 9px;
     margin-left: 5px;
 }
+.detail-product .star_content ul{
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    margin-top: 3px;
+}
+.detail-product .rating_aggregate{
+    display: flex;
+}
+i.fa-solid.fa-star{
+    color: #F9BF00;
+}

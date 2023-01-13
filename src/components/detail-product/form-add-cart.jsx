@@ -2,6 +2,7 @@ import { Markup } from "interweave";
 import { useState } from "react";
 import { Modal } from "react-bootstrap";
 import Payment from "../../assets/images/payment.png";
+import ReviewStar from "../../root-components/review-star";
 import StarRating from "../../root-components/star-rating";
 
 const FormAddCart = ({ data }) => {
@@ -21,17 +22,17 @@ const FormAddCart = ({ data }) => {
   const handleChangeQuantity = (e) => {
     setQuantity(parseInt(e.target.value));
   };
-  const list = [];
-  if (data.averageRating > 0) {
-    var star = Math.floor(data.averageRating);
-    for (let index = 0; index < star; index++) {
-      list.push(
-        <li>
-          <i class="fa-solid fa-star"></i>
-        </li>
-      );
-    }
-  }
+  // const list = [];
+  // if (data.averageRating > 0) {
+  //   var star = Math.floor(data.averageRating);
+  //   for (let index = 0; index < star; index++) {
+  //     list.push(
+  //       <li>
+  //         <i class="fa-solid fa-star"></i>
+  //       </li>
+  //     );
+  //   }
+  // }
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -143,7 +144,7 @@ const FormAddCart = ({ data }) => {
         <div id="product_comments_block_extra" className="no-print">
           <div className="comments_note">
             <div className="star_content">
-              <ul>{list}</ul>
+              <ReviewStar starNumber={data.averageRating} />
             </div>
           </div>
           <ul className="comments_advices">
