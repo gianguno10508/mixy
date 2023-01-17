@@ -1,8 +1,15 @@
+import { useMutation, useQuery } from "@apollo/client";
 import { Markup } from "interweave";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import Payment from "../../assets/images/payment.png";
+import ADD_TO_CART from "../../graphql/add-to-cart";
+import GET_CART from "../../graphql/get-cart";
+import { AppContext } from "../../root-components/app-context";
 import ReviewStar from "../../root-components/review-star";
+import { getFormattedCart } from "../../untils/functions";
+import { v4 } from "uuid";
+
 
 const FormAddCart = ({ data }) => {
   const [isActive, setIsActive] = useState(0);
@@ -21,26 +28,86 @@ const FormAddCart = ({ data }) => {
   const handleChangeQuantity = (e) => {
     setQuantity(parseInt(e.target.value));
   };
-  // const list = [];
-  // if (data.averageRating > 0) {
-  //   var star = Math.floor(data.averageRating);
-  //   for (let index = 0; index < star; index++) {
-  //     list.push(
-  //       <li>
-  //         <i class="fa-solid fa-star"></i>
-  //       </li>
-  //     );
-  //   }
-  // }
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [stars, setStar] = useState();
+  const [requestError, setRequestError] = useState(null);
+  const [cart, setCart] = useContext(AppContext);
+  const productQtyInput = {
+    clientMutationId: v4(), // Generate a unique id.
+    productId: 352,
+    quantity: 1
+  };
+
   const callback = (payload) => {
     setStar(payload);
   };
+  // Get Cart Data.
+  const { dataCart, refetch } = useQuery(GET_CART, {
+    notifyOnNetworkStatusChange: true,
+    onCompleted: () => {
+      // console.warn( 'completed GET_CART' );
+      console.log(dataCart);
+      // Update cart in the localStorage.
+      const updatedCart = getFormattedCart(dataCart);
 
+      localStorage.setItem("woo-cart", JSON.stringify(updatedCart));
+
+      // Update cart data in React Context.
+      setCart(updatedCart);
+    },
+    onError: (error) => {
+      if (error) {
+        console.log(error);
+      }
+    },
+  });
+
+  // Add to Cart Mutation.
+  const [
+    addToCart,
+    { data: addToCartRes, loading: addToCartLoading, error: addToCartError },
+  ] = useMutation(ADD_TO_CART, {
+    variables: {
+      //input: productQtyInput,
+      input: {
+        productId: 352,
+        quantity: 1,
+        clientMutationId: "myId",
+      },
+    },
+    onCompleted: () => {
+      // If error.
+      if (addToCartError) {
+        console.log(addToCartError);
+        setRequestError(addToCartError.graphQLErrors[0].message);
+      }
+      console.log(addToCartRes);
+      // On Success:
+      // 1. Make the GET_CART query to update the cart with new values in React context.
+      refetch();
+
+      // 2. Show View Cart Button
+      //setShowViewCart(true);
+    },
+    onError: (error) => {
+      if (error) {
+        console.log(error);
+        setRequestError(error.graphQLErrors[0].message);
+      }
+    },
+  });
+
+  const handleClick = () => {
+    setRequestError(null);
+    console.log('asd');
+    addToCart();
+  };
+  let existingCart = localStorage.getItem("woo-cart");
+  existingCart = JSON.parse(existingCart);
+  console.log(existingCart);
   return (
     <div className="col-lg-6 col-md-6 col-sm-12 col-right-product-details">
       {/* <Modal
@@ -168,20 +235,32 @@ const FormAddCart = ({ data }) => {
         <div className="product-prices">
           <div className="product-discount">
             <span className="regular-price">
-              {data.variations.nodes[isActive].regularPrice}
+              {data.variations
+                ? data.variations.nodes[isActive].regularPrice
+                : data.regularPrice}
             </span>
           </div>
           <div className="product-price h5 has-discount">
             <div className="current-price">
-              <span>{data.variations.nodes[isActive].salePrice}</span>
+              {data.variations ? (
+                <span>{data.variations.nodes[isActive].salePrice}</span>
+              ) : (
+                <span>{data.price}</span>
+              )}
               <span className="discount discount-percentage">
                 Save{" "}
-                {Math.ceil(
-                  ((data.variations.nodes[isActive].regularPrice.slice(1) -
-                    data.variations.nodes[isActive].salePrice.slice(1)) /
-                    100) *
-                    100
-                )}
+                {data.variations
+                  ? Math.ceil(
+                      ((data.variations.nodes[isActive].regularPrice.slice(1) -
+                        data.variations.nodes[isActive].salePrice.slice(1)) /
+                        100) *
+                        100
+                    )
+                  : Math.ceil(
+                      ((data.regularPrice.slice(1) - data.price.slice(1)) /
+                        100) *
+                        100
+                    )}
                 %
               </span>
             </div>
@@ -193,35 +272,40 @@ const FormAddCart = ({ data }) => {
       </div>
       <div className="product-information">
         <div className="product-actions">
+          <p onClick={handleClick}>test</p>
           <form id="add-to-cart-or-refresh">
-            <div className="product-variants">
-              <div className="product-variants-item">
-                <span className="control-label">
-                  {data.variations.nodes[0].attributes.nodes[0].label}
-                </span>
-                <ul id="dimension">
-                  {data.variations.nodes.map((e, i) => (
-                    <li className="input-container float-xs-left" key={i}>
-                      <label>
-                        <input
-                          className="input-radio"
-                          type="radio"
-                          name="dimension"
-                          onClick={(event) => handleItemClick(event, i)}
-                        />
-                        {isActive == i ? (
-                          <span className={`radio-label checked-radio`}>
-                            {e.description}
-                          </span>
-                        ) : (
-                          <span className={`radio-label`}>{e.description}</span>
-                        )}
-                      </label>
-                    </li>
-                  ))}
-                </ul>
+            {data.variations && (
+              <div className="product-variants">
+                <div className="product-variants-item">
+                  <span className="control-label">
+                    {data.variations.nodes[0].attributes.nodes[0].label}
+                  </span>
+                  <ul id="dimension">
+                    {data.variations.nodes.map((e, i) => (
+                      <li className="input-container float-xs-left" key={i}>
+                        <label>
+                          <input
+                            className="input-radio"
+                            type="radio"
+                            name="dimension"
+                            onClick={(event) => handleItemClick(event, i)}
+                          />
+                          {isActive == i ? (
+                            <span className={`radio-label checked-radio`}>
+                              {e.description}
+                            </span>
+                          ) : (
+                            <span className={`radio-label`}>
+                              {e.description}
+                            </span>
+                          )}
+                        </label>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-            </div>
+            )}
             <div className="product-add-to-cart">
               <div className="product-quantity">
                 <div className="qty">

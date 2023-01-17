@@ -33,7 +33,7 @@ function Headerwapper(props, showNavbar) {
                                 <i className="fa-regular fa-user"></i>
                             </Link>
                             :
-                            <Link to='/'>
+                            <Link to='/login'>
                                 <i className="fa-regular fa-user"></i>
                             </Link>}
                         </div>

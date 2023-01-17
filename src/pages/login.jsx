@@ -135,9 +135,7 @@ function Login(props) {
                   </div>
                 </div>
                 <div className="forgot-password">
-                  <a href="#" rel="nofollow">
-                    Forgot your password?
-                  </a>
+                  <Link to={'/forgot-pass'}>Forgot your password?</Link>
                 </div>
               </section>
 

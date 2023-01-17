@@ -7,13 +7,18 @@ import Page404 from "./404";
 import InformationDetailProduct from "../components/detail-product/information-detail-product";
 
 function DetailProduct() {
+  const url = window.location.href;
+
+  const id_product = url.split("/").pop();
+  console.log(id_product);
   const { loading, error, data } = useQuery(GET_DETAIL_PRODUCT, {
     variables: {
-      idProduct: "cHJvZHVjdDozNTQ=",
+      idProduct: id_product,
     },
   });
   if (loading) return <p>Loading...</p>;
   if (error) return <Page404 />;
+  
   if (data) {
     console.log(data);
     return (

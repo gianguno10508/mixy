@@ -26,9 +26,10 @@ import CreateAccount from './pages/create-account';
 import Categories from './root-components/categories';
 import Shops from './pages/shops';
 import PricesDrop from './pages/prices-drop';
+import CartPage from './pages/cart-page';
+import ForgotPassword from './pages/forgot-password';
 import NewProducts from './pages/new-products';
 import BestSales from './pages/best-sales';
-
 function App() {
   // const { loading, error, data } = useQuery(PAGES);
 
@@ -43,32 +44,21 @@ function App() {
         <Route path='/my-account' element={<MyAccount />} />
         <Route path='/about-us' element={<AboutUs />} />
         <Route path='/delivery' element={<Delivery />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/create' element={<CreateAccount />} />
         <Route path='/stores' element={<Stores />} />
         <Route path='/secure-payment' element={<SecurePayment />} />
         <Route path='/legal-notice' element={<LegalNotice />} />
         <Route path='/contact-us' element={<ContactUs />} />
         <Route path='/shop-list' element={<Shops />} />
         <Route path='/detail-post/:id' element={<DetailBlog />} />
+        <Route path='/detail-product/:id' element={<DetailProduct />} />
         <Route path='/prices-drop' element={<PricesDrop />} />
+        <Route path='/forgot-pass' element={<ForgotPassword />} />
         <Route path='/new-products' element={<NewProducts />} />
         <Route path='/best-sales' element={<BestSales />} />
       </Routes>
       <Footer1 />
-      {/* <Header /> */}
-      {/* <AboutUs /> */}
-      {/* <Posts /> */}
-      {/* <Products /> */}
-      {/* <Homepage /> */}
-      {/* <Footer /> */}
-      {/* <Login /> */}
-      {/* <SingleProduct /> */}
-      {/* <Delivery /> */}
-      {/* <SecurePayment /> */}
-      {/* <LegalNotice /> */}
-      {/* <Categories /> */}
-      {/* _____ */}
-      {/* <ContactUs />
-      <Home /> */}
     </div>
   );
 }
