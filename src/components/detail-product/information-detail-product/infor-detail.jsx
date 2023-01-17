@@ -14,7 +14,7 @@ const InformationTabDetailProduct = () => {
       </div>
       <div className="product-reference">
         <label className="label">Reference </label>
-        <span itemprop="sku">demo_3</span>
+        <span itemProp="sku">demo_3</span>
       </div>
       <div className="product-quantities">
         <label className="label">In stock</label>

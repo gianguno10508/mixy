@@ -26,6 +26,8 @@ import CreateAccount from './pages/create-account';
 import Categories from './root-components/categories';
 import Shops from './pages/shops';
 import PricesDrop from './pages/prices-drop';
+import CartPage from './pages/cart-page';
+import ForgotPassword from './pages/forgot-password';
 
 function App() {
   // const { loading, error, data } = useQuery(PAGES);
@@ -51,6 +53,7 @@ function App() {
         <Route path='/detail-post/:id' element={<DetailBlog />} />
         <Route path='/detail-product/:id' element={<DetailProduct />} />
         <Route path='/prices-drop' element={<PricesDrop />} />
+        <Route path='/forgot-pass' element={<ForgotPassword />} />
       </Routes>
       <Footer1 />
     </div>

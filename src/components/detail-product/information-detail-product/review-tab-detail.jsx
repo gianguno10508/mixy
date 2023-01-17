@@ -16,7 +16,9 @@ const ReviewTabDetailProduct = ({ data }) => {
   const [author, setAuthor] = useState();
   const [title, setTitle] = useState();
   const [comment, setComment] = useState();
-
+  console.log(data);
+  const jwtSession = window.localStorage.getItem('woo-session');
+  console.log(jwtSession);
   const [review, { loading: reviewLoading, error: reviewError }] = useMutation(
     REVIEW_PRODUCT,
     {
@@ -47,7 +49,7 @@ const ReviewTabDetailProduct = ({ data }) => {
     event.preventDefault();
     review();
   };
-  console.log(data);
+
   return (
     <div id="product_comments_block_tab" className="tab-pane">
       <h2 className="reviews-title">Customer Reviews</h2>
