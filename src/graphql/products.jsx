@@ -10,6 +10,7 @@ const PRODUCTS = gql`
             regularPrice
             salePrice
             shortDescription
+            weight
             featuredImage {
               node {
                 sourceUrl
@@ -40,6 +41,7 @@ const PRODUCTS = gql`
             regularPrice
             salePrice
             shortDescription
+            weight
             variations{
               nodes{
                 id
@@ -50,6 +52,7 @@ const PRODUCTS = gql`
                 slug
               }
             }
+            
             featuredImage {
               node {
                 sourceUrl

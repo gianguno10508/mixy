@@ -1,9 +1,11 @@
 import React from 'react';
-import { bannerdataHome } from '../../../assets/fakedata/HomeData';
+// import { bannerdataHome } from '../../../assets/fakedata/HomeData';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-function BannerLeft(props) {
+import { Markup } from 'interweave';
+import { Link } from 'react-router-dom';
+function BannerLeft({ bannerLeft }) {
     var settings = {
         nav: false,
         dots: false,
@@ -27,23 +29,23 @@ function BannerLeft(props) {
                 </div>
                 <div className='banner-left-list'>
                     <Slider {...settings}>
-                        {bannerdataHome.map((item, index) => (
+                        {bannerLeft.map((item, index) => (
                             <div className='banner-item' key={index}>
                                 <div className='banner-image'>
-                                    <img src='https://demo2.posthemes.com/pos_mixy/layout2/modules/posslideshows/images/7e8bf5523a78c056f7ded0cb2fb0482a402f756d_s2_2.jpg'
+                                    <img src={item.image.sourceUrl}
                                         alt='banner' />
                                 </div>
                                 <div className='banner-content'>
                                     <div className='title'>
-                                        <p>100% Organic Potato</p>
-                                        <h2>Potato Chips Pepper With</h2>
+                                        <p>{item.subTitle}</p>
+                                        <Markup content={item.title} />
                                     </div>
                                     <div className='price'>
-                                        <p>Starting At</p>
-                                        <h3>$12.78</h3>
+                                        <Markup content={item.description} />
+                                        <Markup content={item.price} />
                                     </div>
                                     <div className='button'>
-                                        <a href='#'>Shop Now <i className="fa-solid fa-arrow-right icon"></i></a>
+                                        <Link to='/shop-list'>Shop Now <i className="fa-solid fa-arrow-right icon"></i></Link>
                                     </div>
                                 </div>
                             </div>

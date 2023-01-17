@@ -28,7 +28,8 @@ import Shops from './pages/shops';
 import PricesDrop from './pages/prices-drop';
 import CartPage from './pages/cart-page';
 import ForgotPassword from './pages/forgot-password';
-
+import NewProducts from './pages/new-products';
+import BestSales from './pages/best-sales';
 function App() {
   // const { loading, error, data } = useQuery(PAGES);
 
@@ -54,6 +55,8 @@ function App() {
         <Route path='/detail-product/:id' element={<DetailProduct />} />
         <Route path='/prices-drop' element={<PricesDrop />} />
         <Route path='/forgot-pass' element={<ForgotPassword />} />
+        <Route path='/new-products' element={<NewProducts />} />
+        <Route path='/best-sales' element={<BestSales />} />
       </Routes>
       <Footer1 />
     </div>

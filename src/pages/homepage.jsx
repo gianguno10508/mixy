@@ -19,13 +19,10 @@ const Homepage = () => {
   if (error) return <p>Error : {error.message}</p>;
   if (data) {
     products = data.products.nodes;
-    // console.log(products);
+    const dataSale = products.filter(ite => ite.onSale == true);
+    // console.log(dataSale);
     return (
       <div className="section-home-page">
-        {/* {datab.filter(ite => ite.isSlider.includes('Yes')).map(item => (
-          <p>{item.title}</p>
-        ))
-        } */}
         <Banner />
         <PopularCategories slidesToShow={8} />
         <PosSpecialProducts
@@ -37,7 +34,7 @@ const Homepage = () => {
           }
           countdown={true}
           category={false}
-          data={products}
+          dataProduct={dataSale}
         />
         <PoslistCateProduct
           slidesToShow={4}
@@ -51,7 +48,7 @@ const Homepage = () => {
           }
           countdown={false}
           category={false}
-          data={products}
+          dataProduct={products}
         />
         <PoslistCateProduct
           slidesToShow={4}
@@ -65,7 +62,7 @@ const Homepage = () => {
           }
           countdown={false}
           category={false}
-          data={products}
+          dataProduct={products}
         />
 
         <BannerTwo />
@@ -81,7 +78,7 @@ const Homepage = () => {
           }
           countdown={false}
           category={true}
-          data={products}
+          dataProduct={products}
         />
 
         <BannerBlog />

@@ -32,7 +32,7 @@ function BannerBlog(props) {
           style={{ ...style, display: "block" }}
           onClick={onClick}
         >
-          <i class="fa-solid fa-arrow-left slider_iconbanner_prev"></i>
+          <i className="fa-solid fa-arrow-left slider_iconbanner_prev"></i>
         </div>
       );
     };
@@ -89,8 +89,8 @@ function BannerBlog(props) {
                         <div className="blog_post_content_top">
                           <div className="post_thumbnail">
                             <Link className="img_content" to={`/detail-post/${item.id}`}>
-                            <img
-                                class="xipblog_img"
+                              <img
+                                className="xipblog_img"
                                 src={item.featuredImage.node.mediaItemUrl}
                                 alt="img"
                               />
@@ -101,7 +101,7 @@ function BannerBlog(props) {
                           <div className="content-inner">
                             <div className="post_meta ">
                               <p className="meta_author">
-                                Posted by 
+                                Posted by
                                 <span> {item.author.node.name}</span>
                               </p>
                               <p className="meta_date"><FormatDate dateFormat={item.date} /></p>
@@ -115,9 +115,9 @@ function BannerBlog(props) {
                     </div>
                   ))}
                   {/* <div className="blog-item">
-                    <article class="blog_post">
-                      <div class="blog_post_content_top">
-                        <div class="post_thumbnail">
+                    <article className="blog_post">
+                      <div className="blog_post_content_top">
+                        <div className="post_thumbnail">
                           <a href="#" class="img_content">
                             <img
                               class="xipblog_img"
