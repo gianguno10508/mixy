@@ -15,7 +15,8 @@
 }
 
 .banner-left-main .banner-item .banner-content .title p,
-.banner-left-main .banner-item .banner-content .price p {
+.banner-left-main .banner-item .banner-content .price p,
+.banner-left-main .banner-item .banner-content .price span {
     font-size: 18px;
     font-weight: 400;
     letter-spacing: 0;
@@ -23,7 +24,7 @@
 }
 
 .banner-left-main .banner-item .banner-content .title h2 {
-    width: 50%;
+    width: 60%;
     line-height: 1.25;
     font-size: 56px;
     font-weight: 700;

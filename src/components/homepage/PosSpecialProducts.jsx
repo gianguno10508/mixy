@@ -1,7 +1,7 @@
 import React from 'react';
 import ConponentsSlider from '../Slider';
-function PosSpecialProducts({ slidesToShow, title, description, countdown, slidesPerRow, data }) {
-    const filter = data.filter(ite => ite.onSale == true);
+function PosSpecialProducts({ slidesToShow, title, description, countdown, slidesPerRow, dataProduct }) {
+
     return (
         <div className='container'>
             <div className='pos-special-products'>
@@ -15,7 +15,7 @@ function PosSpecialProducts({ slidesToShow, title, description, countdown, slide
                     slidesToShow={slidesToShow}
                     countdown={countdown}
                     slidesPerRow={slidesPerRow}
-                    data={filter}
+                    dataProduct={dataProduct}
                 />
             </div>
         </div>

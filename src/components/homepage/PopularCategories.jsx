@@ -26,12 +26,12 @@ function PopularCategories({ slidesToShow }) {
                         {
                             categories.map((item, index) => (
                                 <div className='item-categories col-lg-3' key={index}>
-                                    <div class="thumb-category">
+                                    <div className="thumb-category">
                                         <a href="#">
                                             <img src={item.image.sourceUrl} alt="" /></a>
                                     </div>
-                                    <div class="desc-listcategoreis">
-                                        <div class="name_categories">
+                                    <div className="desc-listcategoreis">
+                                        <div className="name_categories">
                                             <a href="#"> {item.name}</a>
                                             {
                                                 item.products.nodes &&

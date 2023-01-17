@@ -26,6 +26,8 @@ import CreateAccount from './pages/create-account';
 import Categories from './root-components/categories';
 import Shops from './pages/shops';
 import PricesDrop from './pages/prices-drop';
+import NewProducts from './pages/new-products';
+import BestSales from './pages/best-sales';
 
 function App() {
   // const { loading, error, data } = useQuery(PAGES);
@@ -48,6 +50,8 @@ function App() {
         <Route path='/shop-list' element={<Shops />} />
         <Route path='/detail-post/:id' element={<DetailBlog />} />
         <Route path='/prices-drop' element={<PricesDrop />} />
+        <Route path='/new-products' element={<NewProducts />} />
+        <Route path='/best-sales' element={<BestSales />} />
       </Routes>
       <Footer1 />
       {/* <Header /> */}

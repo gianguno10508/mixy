@@ -394,3 +394,8 @@
     background: #15bd68;
     color: #fff;
 }
+
+#right-column .product-list .no-product {
+    font-size: 20px;
+    font-weight: 600;
+}

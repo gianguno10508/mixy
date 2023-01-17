@@ -1,17 +1,19 @@
+import { Markup } from 'interweave';
 import React from 'react';
-import { bannerRightdataHome } from '../../../assets/fakedata/HomeData';
+import { Link } from 'react-router-dom';
+// import { bannerRightdataHome } from '../../../assets/fakedata/HomeData';
 
-function BannerRight(props) {
+function BannerRight({ bannerRight }) {
     return (
         <div className='col col-md-4 col-xs-12'>
             {
-                bannerRightdataHome.map((item, index) => (
+                bannerRight.map((item, index) => (
                     <div className='banner-box' key={index}>
-                        <img src={item.image} alt='banner' />
+                        <img src={item.image.sourceUrl} alt='banner' />
                         <div className='text-banner'>
-                            <h3>{item.title}</h3>
+                            <Markup content={item.title} />
                             <p>{item.description}</p>
-                            <a href='#'>Shop Now <i className="fa-solid fa-arrow-right"></i></a>
+                            <Link to='/shop-list'>Shop Now <i className="fa-solid fa-arrow-right"></i></Link>
                         </div>
                     </div>
                 ))

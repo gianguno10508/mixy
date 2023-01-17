@@ -14,6 +14,9 @@ const HOMEPAGE = gql`
           price
           subTitle
           title
+          image{
+            sourceUrl
+          }
         }
       }
     }
