@@ -1,12 +1,11 @@
 import { useQuery } from '@apollo/client';
 import React from 'react';
+import { Breadcrumb } from 'react-bootstrap';
+import { useLocation } from 'react-router-dom';
 import ComponentsListProduct from '../components/components-list-product';
 import PRODUCTS from '../graphql/products';
-import Breadcrumb from '../root-components/Breadcrumb';
-import LoadingImg from '../assets/images/Loading_icon.gif'
-import { useLocation } from 'react-router-dom';
-function PricesDrop(props) {
-    // const pathname = 'Prices drop'
+
+function NewProducts(props) {
     const { pathname } = useLocation();
     const { loading, error, data } = useQuery(PRODUCTS);
 
@@ -17,7 +16,6 @@ function PricesDrop(props) {
         const datalist = dataPricesDrop.filter(ite => ite.onSale === true);
         return (
             <>
-
                 <Breadcrumb pathname={pathname} />
                 <ComponentsListProduct
                     pathname={pathname}
@@ -26,10 +24,8 @@ function PricesDrop(props) {
                     titleCategory={false}
                 />
             </>
-
         );
-
     }
 }
 
-export default PricesDrop;
+export default NewProducts;

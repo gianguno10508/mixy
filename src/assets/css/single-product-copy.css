@@ -186,7 +186,11 @@
     padding: 20px;
     background: #fff;
     position: relative;
-    height: 192px;
+    min-height: 133.8px;
+}
+
+.item-product .product-miniature .countdown-desc {
+    height: auto !important;
 }
 
 .item-product .product-miniature .product_desc .hook-reviews {
@@ -240,6 +244,8 @@
     font-weight: 400;
     margin: 0;
     line-height: 1;
+    height: 36px;
+    margin-bottom: 10px;
 }
 
 .product-miniature .product_desc .product_name {
@@ -247,7 +253,6 @@
     font-size: 14px;
     text-transform: capitalize;
     line-height: 18px;
-    margin-bottom: 10px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -266,10 +271,16 @@
     margin-right: 2px;
 }
 
-.product-miniature .product_desc .product-price-and-shipping .price-sale {
+.product-miniature .product_desc .product-price-and-shipping .price-sale,
+.product-miniature .product_desc .product-price-and-shipping .price {
+
     color: #da2e1f;
     font-size: 18px;
     font-weight: 600;
+}
+
+.product-miniature .product_desc .product-price-and-shipping .price {
+    text-decoration: none;
 }
 
 .product-miniature .product_desc .countdown {
@@ -378,4 +389,70 @@
 
 .fadeInRight {
     animation-name: fadeInRight
+}
+
+.time_count_down {
+    position: relative;
+    /* font-size: 0; */
+    line-height: 1;
+    background: #da2e1f;
+    border-radius: 30px;
+    display: inline-flex;
+    padding: 4px 25px;
+    width: 100%;
+}
+
+.future_date_10_2 {
+    width: 100%;
+}
+
+.countdown-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.countdown-row .countdown-section {
+    display: flex;
+    flex-direction: column;
+    margin-right: 5px;
+    position: relative;
+    align-items: center;
+}
+
+/* .countdown-row .countdown-section::before {
+    content: ':';
+    position: absolute;
+    left: 0;
+    top: 10%;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 600;
+    padding-right: 5px;
+}
+
+.countdown-row .countdown-section:first-child::before {
+    content: none;
+} */
+
+.countdown-amount {
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    font-family: 'Dosis', sans-serif;
+}
+
+.countdown-period {
+    font-weight: 600;
+    color: #fff;
+    font-family: 'Dosis', sans-serif;
+}
+
+.popup-overlay {
+    background: rgba(0, 0, 0, .5);
+}
+
+.popup-detail {
+    background-color: #fff;
+    padding: 20px;
 }

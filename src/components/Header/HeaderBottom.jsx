@@ -69,19 +69,19 @@ function HeaderBottom({ scrollDirection, headerCategory, headerCategory2, header
                         <Wrapper className={visible ? 'show-cate' : ''} visible={visible} ref={assignHeight} height={height}>
                             <ul className='menu-content'>
                                 <li className='menu-item bold'>
-                                    <a href='#'>
+                                    <Link to='/prices-drop'>
                                         <span>Our special products</span>
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className='menu-item bold'>
-                                    <a href='#'>
+                                    <Link to='/best-sales'>
                                         <span>Our best sales</span>
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className='menu-item bold'>
-                                    <a href='#'>
+                                    <Link to='/new-products'>
                                         <span>New Arrivals</span>
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className='menu-item'>
                                     <a href='#'>

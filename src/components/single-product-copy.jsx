@@ -1,8 +1,51 @@
 import { Markup } from 'interweave';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Popup from 'reactjs-popup';
 import '../assets/css/single-product-copy.css';
+import Popupdetail from './popup-detail/popupdetail';
 const SingleProductCopy = ({ countdown, showGird, data }) => {
-  console.log(data);
+  // console.log(data.dateOnSaleTo);
+  const [timerDays, setTimerDays] = useState();
+  const [timerHours, setTimerHours] = useState();
+  const [timerMinutes, setTimerMinutes] = useState();
+  const [timerSeconds, setTimerSeconds] = useState();
+  const [quickView, setquickView] = useState([]);
+
+  let interval;
+  const time_count_down = data.dateOnSaleTo;
+  const startTimer = () => {
+    const countDownDate = new Date(time_count_down).getTime();
+
+    interval = setInterval(() => {
+      const now = new Date().getTime();
+
+      const distance = countDownDate - now;
+
+      const days = Math.floor(distance / (24 * 60 * 60 * 1000));
+      const hours = Math.floor(
+        (distance % (24 * 60 * 60 * 1000)) / (1000 * 60 * 60)
+      );
+      const minutes = Math.floor((distance % (60 * 60 * 1000)) / (1000 * 60));
+      const seconds = Math.floor((distance % (60 * 1000)) / 1000);
+
+      if (distance < 0) {
+        // Stop Timer
+
+        clearInterval(interval.current);
+      } else {
+        // Update Timer
+        setTimerDays(days);
+        setTimerHours(hours);
+        setTimerMinutes(minutes);
+        setTimerSeconds(seconds);
+      }
+    });
+  };
+
+  useEffect(() => {
+    startTimer();
+  });
   return (
     <div className="item-product">
       <article
@@ -25,20 +68,39 @@ const SingleProductCopy = ({ countdown, showGird, data }) => {
                 <i className="fa-solid fa-heart"></i>
               </a>
             </li>
-            <li className="compare">
+            {/* <li className="compare">
               <a
                 href="#"
                 className="poscompare-add"
               ><i className="fa-solid fa-retweet"></i>
               </a>
-            </li>
+            </li> */}
             <li className="quick-view">
+              <Popup
+                className='check-box'
+                modal
+                trigger={
+                  <p
+                    style={{ cursor: "pointer" }}
+                    href="#"
+                    className="check-box-list"
+                  >
+                    <a href='#' className='hover-icon-check' onClick={() => {
+                      setquickView((arr) => [...arr, data]);
+                    }}><i className="fa-solid fa-eye"></i></a>
+                  </p>
+                }
+              >
+                <Popupdetail item={quickView} />
+              </Popup>
+            </li>
+            {/* <li className="quick-view">
               <a
                 className="quick_view"
                 href="#"
               ><i className="fa-solid fa-eye"></i>
               </a>
-            </li>
+            </li> */}
             {showGird == 'list' ?
               (<li className="cart" style={{ display: 'none' }}>
                 <div className="product-add-to-cart">
@@ -119,10 +181,17 @@ const SingleProductCopy = ({ countdown, showGird, data }) => {
                 <span className="price price-sale"> {data.variations.nodes[0].salePrice}</span>
               </div>
             ) : (
-              <div className="product-price-and-shipping">
-                <span className="regular-price">{data.regularPrice}</span>
-                <span className="price price-sale"> {data.salePrice}</span>
-              </div>
+              data.salePrice ? (
+                <div className="product-price-and-shipping">
+                  <span className="regular-price">{data.regularPrice}</span>
+                  <span className="price price-sale"> {data.salePrice}</span>
+                </div>
+              ) : (
+                <div className="product-price-and-shipping">
+                  <span className="regular-price price">{data.regularPrice}</span>
+                </div>
+              )
+
             )
           }
 
@@ -140,38 +209,42 @@ const SingleProductCopy = ({ countdown, showGird, data }) => {
           {countdown === true &&
             <div className="countdown">
               <div className="title_countdown">Hurry Up! Offers ends in:</div>
-              {/* <div className="time_count_down">
-              <span
-                className="future_date_10_2 time_countdown is-countdown"
-              >
-                <span className="countdown-row countdown-show4">
-                  <span className="countdown-section">
-                    <span className="countdown-amount">1048</span>
-                    <span className="countdown-period">Days</span>
-                  </span>
-                  <span className="countdown-section">
-                    <span className="countdown-amount">7</span>
-                    <span className="countdown-period">Hours</span>
-                  </span>
-                  <span className="countdown-section">
-                    <span className="countdown-amount">30</span>
-                    <span className="countdown-period">Mins</span>
-                  </span>
-                  <span className="countdown-section">
-                    <span className="countdown-amount">6</span>
-                    <span className="countdown-period">Secs</span>
+              <div className="time_count_down">
+                <span
+                  className="future_date_10_2 time_countdown is-countdown"
+                >
+                  <span className="countdown-row countdown-show4">
+                    <span className="countdown-section">
+                      <span className="countdown-amount">{timerDays}</span>
+                      <span className="countdown-period">Days</span>
+                    </span>
+                    <span className="countdown-section">
+                      <span className="countdown-amount">{timerHours}</span>
+                      <span className="countdown-period">Hours</span>
+                    </span>
+                    <span className="countdown-section">
+                      <span className="countdown-amount">{timerMinutes}</span>
+                      <span className="countdown-period">Mins</span>
+                    </span>
+                    <span className="countdown-section">
+                      <span className="countdown-amount">{timerSeconds}</span>
+                      <span className="countdown-period">Secs</span>
+                    </span>
                   </span>
                 </span>
-              </span>
-            </div> */}
+              </div>
             </div>
           }
-          <span id="future_date_10_2" className="id_countdown"></span>
         </div>
-      </article >
+      </article>
 
-    </div >
+    </div>
   );
 };
-
+SingleProductCopy.defaultProps = {
+  timerDays: 10,
+  timerHours: 10,
+  timerMinutes: 10,
+  timerSeconds: 10,
+};
 export default SingleProductCopy;

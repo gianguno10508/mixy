@@ -7,10 +7,15 @@
 }
 
 /* ____Left____ */
+
 .list-product #left-column .block-categories {
     box-shadow: none;
     padding: 0px;
     margin-bottom: 30px;
+}
+
+.list-product #left-column .search_filters .category-disnone {
+    display: none !important;
 }
 
 .list-product #left-column .block-categories .h6 {
@@ -393,4 +398,9 @@
 #right-column .product-list .product-list-content .navigation-pagination .paginationBttns .paginationActive a {
     background: #15bd68;
     color: #fff;
+}
+
+#right-column .product-list .no-product {
+    font-size: 20px;
+    font-weight: 600;
 }

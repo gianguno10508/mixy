@@ -238,7 +238,7 @@
 .header-bottom-wapper .all-category {
     width: 270px;
     position: relative;
-    z-index: 9;
+    z-index: 13;
 }
 
 .header-bottom-wapper .all-category .title_vertical {

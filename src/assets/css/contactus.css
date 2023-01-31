@@ -30,6 +30,10 @@
 
 }
 
+.breadcrumb_container ol li a {
+    text-transform: capitalize;
+}
+
 .section-contact-us .content-contact-us .left-colum .contact-rich {
     margin-bottom: 32px;
     word-wrap: break-word;

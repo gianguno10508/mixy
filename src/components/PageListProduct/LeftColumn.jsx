@@ -1,48 +1,15 @@
 import React from 'react';
 import MultiRangeSlider from './MultiRangeSlider';
 
-function LeftColumn({ pathname, searchfilters, listCategory, listSize, handleChange }) {
+function LeftColumn
+    ({ pathname, searchfilters, listCategory,
+        listSize, handleChange,
+        handleInput, minInNumbers, maxInNumbers,
+        handleChangeSize,
+        dataCategory, titleCategory
+    }) {
     return (
         <div id="left-column" className="col-xs-12 col-sm-4 col-md-3">
-            {
-                searchfilters ? (
-                    <div className='search_filters'>
-                        <p className='text-uppercase h6 hidden-sm-down'>Filter By</p>
-                        {listCategory &&
-                            <div className='filter-category facet clearfix'>
-                                <p className="h6 facet-title hidden-sm-down">Categories</p>
-                                {listCategory.map((itemCategory, index) => (
-                                    <label key={index}>{itemCategory.name}
-                                        <input type='checkbox' className='checked_listcate'
-                                            name={itemCategory.name} value={itemCategory.name} onChange={handleChange} />
-                                        <span className='checkmark'></span>
-                                    </label>
-                                ))}
-                            </div>
-                        }
-
-                        <div className='filter-price facet clearfix'>
-                            <p className="h6 facet-title hidden-sm-down">Price</p>
-                            {/* <MultiRangeSlider
-                                min={0}
-                                max={1000}
-                                onChange={({ min, max }) => console.log(`min = ${min}, max = ${max}`)}
-                            /> */}
-                        </div>
-                        <div className='filter-size facet clearfix'>
-                            <p className="h6 facet-title hidden-sm-down">Size</p>
-                            {listSize.map((itemSize, index) => (
-                                <label key={index}>{itemSize.size}g
-                                    <input type='checkbox' className='checked_listcate'
-                                        name={itemSize.size} value={itemSize.size} />
-                                    <span className='checkmark'></span>
-                                </label>
-                            ))}
-                        </div>
-
-                    </div>
-                ) : (null)
-            }
             {pathname ? (
                 <div className="block-categories">
                     <ul className="category-top-menu">
@@ -57,6 +24,46 @@ function LeftColumn({ pathname, searchfilters, listCategory, listSize, handleCha
             ) : (
                 null
             )}
+            {
+                searchfilters ? (
+                    <div className='search_filters'>
+                        <p className='text-uppercase h6 hidden-sm-down'>Filter By</p>
+                        {listCategory &&
+                            <div className={`filter-category facet clearfix ${titleCategory === false ? 'category-disnone' : ''}`}>
+                                <p className="h6 facet-title hidden-sm-down">Categories</p>
+                                {listCategory.map((itemCategory, index) => (
+                                    <label key={index}>{itemCategory.name}
+                                        <input type='checkbox' className='checked_listcate'
+                                            name={itemCategory.name} value={itemCategory.name} onChange={handleChange} />
+                                        <span className='checkmark'></span>
+                                    </label>
+                                ))}
+                            </div>
+                        }
+
+                        <div className='filter-price facet clearfix'>
+                            <p className="h6 facet-title hidden-sm-down">Price</p>
+                            <MultiRangeSlider
+                                min={minInNumbers}
+                                max={maxInNumbers}
+                                onChange={({ min, max }) => handleInput(min, max)}
+                            />
+                        </div>
+                        <div className='filter-size facet clearfix'>
+                            <p className="h6 facet-title hidden-sm-down">Size</p>
+                            {listSize.map((itemSize, index) => (
+                                <label key={index}>{itemSize.size}g
+                                    <input type='checkbox' className='checked_listcate'
+                                        name={itemSize.size} value={itemSize.size} onChange={handleChangeSize} />
+                                    <span className='checkmark'></span>
+                                </label>
+                            ))}
+                        </div>
+
+                    </div>
+                ) : (null)
+            }
+
 
             <div id="tags_block">
                 <h2>tags</h2>

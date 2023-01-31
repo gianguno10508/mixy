@@ -2,7 +2,8 @@ import SingleProductCopy from "./single-product-copy";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-const ConponentsSlider = ({ slidesToShow, countdown, slidesPerRow, data }) => {
+const ConponentsSlider = ({ slidesToShow, countdown, slidesPerRow, dataProduct, productCategory }) => {
+    // console.log(dataProduct);
     const NextArrow = (props) => {
         const { className, style, onClick } = props;
         return (
@@ -87,7 +88,7 @@ const ConponentsSlider = ({ slidesToShow, countdown, slidesPerRow, data }) => {
             <div className='special-item'>
                 <div className='owl-stage-outer'>
                     <Slider {...settings}>
-                        {data.map((item, index) => (
+                        {dataProduct.map((item, index) => (
                             <SingleProductCopy countdown={countdown} key={index} data={item} />
                         ))}
 
