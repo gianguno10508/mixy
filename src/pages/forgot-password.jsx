@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import RESET_PASSWORD from "../graphql/reset-password";
 import SEND_RESET_PASSWORD from "../graphql/send-key-resetpass";
 
-function ForgotPassword(props) {
+function ForgotPassword() {
   const [done, setDone] = useState();
   const [hide, setHide] = useState("appear");
   const [email, setEmail] = useState();
@@ -18,7 +18,6 @@ function ForgotPassword(props) {
         },
       },
       onCompleted: (data) => {
-        console.log(data);
         // navigate("/reset-pass");
       },
       onError: (error) => {
@@ -53,32 +52,35 @@ function ForgotPassword(props) {
     {
       variables: {
         input: {
-          email: resetFields.email,
+          login: email,
           password: resetFields.password,
           key: resetFields.key,
         },
       },
       onCompleted: (data) => {
         console.log(data);
-        // navigate("/");
+        navigate("/");
       },
       onError: (error) => {
         if (error) {
+          console.log(error);
           setErrorMessage("Authentication failed.");
         }
       },
     }
   );
-  const handleLogin = async (event) => {
+  const handleResetMail = async (event) => {
     event.preventDefault();
     setErrorMessage();
-    //login();
+    resetpass();
+    console.log("asfd");
   };
 
   const handleOnChange = (event) => {
     setResetFields({ ...resetFields, [event.target.name]: event.target.value });
   };
   const { password, key } = resetFields;
+  console.log(resetFields);
   return (
     <div className="forget-password page-customer-account">
       <div className="container">
@@ -87,10 +89,7 @@ function ForgotPassword(props) {
             {done ? (
               <>
                 <section className="login-form">
-                  <form
-                    id="login-form"
-                    onSubmit={(event) => handleLogin(event)}
-                  >
+                  <form id="login" onSubmit={(event) => handleResetMail(event)}>
                     <section>
                       <div className="form-group row ">
                         <label className="col-md-3 form-control-label required">
@@ -118,7 +117,6 @@ function ForgotPassword(props) {
                             type="email"
                             required
                             value={email}
-                            onChange={handleOnChange}
                           />
                         </div>
                       </div>
@@ -132,7 +130,7 @@ function ForgotPassword(props) {
                             <input
                               className="form-control js-child-focus js-visible-password"
                               name="password"
-                              type="text"
+                              type="password"
                               pattern=".{5,}"
                               required
                               value={password}
@@ -142,16 +140,16 @@ function ForgotPassword(props) {
                         </div>
                       </div>
                     </section>
+                    <button
+                      id="submit-reset"
+                      className="btn btn-primary"
+                      type="submit"
+                    >
+                      Send request
+                    </button>
                   </form>
                 </section>
                 <hr />
-                <button
-                  id="submit-send-reset"
-                  className="btn btn-primary"
-                  type="submit"
-                >
-                  Send request
-                </button>
               </>
             ) : (
               <form className="forgotten-password" onSubmit={handleReset}>
@@ -205,7 +203,7 @@ function ForgotPassword(props) {
             <div className="section">
               <a href="/" className="account-link btn-primary">
                 <i class="fa-solid fa-chevron-left"></i>
-                <span>Back to login</span>
+                <span> Back to login</span>
               </a>
             </div>
           </footer>
