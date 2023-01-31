@@ -1,5 +1,6 @@
 import { useQuery } from '@apollo/client';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
@@ -12,7 +13,7 @@ function PopularCategories({ slidesToShow }) {
     if (error) return <p>Error : {error.message}</p>;
     if (data) {
         categories = data.productCategories.nodes;
-
+        // console.log(categories);
         return (
             <div className='container'>
                 <div className='popular-categories-main'>
@@ -32,7 +33,7 @@ function PopularCategories({ slidesToShow }) {
                                     </div>
                                     <div className="desc-listcategoreis">
                                         <div className="name_categories">
-                                            <a href="#"> {item.name}</a>
+                                            <Link to={`/${item.slug}`}> {item.name}</Link>
                                             {
                                                 item.products.nodes &&
                                                 <span> {item.products.nodes.length} Products</span>

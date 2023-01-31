@@ -3,7 +3,8 @@ import ReactPaginate from 'react-paginate';
 import FilterProduct from '../filter-product';
 import SingleProductCopy from '../single-product-copy';
 
-function RightColumn({ data, productCategory, pricemax, pricemin, productSize }) {
+function RightColumn({ data, productCategory, pricemax, pricemin, productSize, dataPrice }) {
+    // console.log(dataPrice);
     const [showGird, setshowGrid] = useState('grid')
     const handClickShowGrid = (event) => {
         if (showGird == 'grid') {
@@ -33,7 +34,6 @@ function RightColumn({ data, productCategory, pricemax, pricemin, productSize })
     // ]
     const [dataProduct, setdataProduct] = useState(data)
     // console.log(dataProduct);
-
     const lengthProduct = dataProduct.length;
     const sortPlayers = (selectEvent) => {
         const options = {
@@ -71,6 +71,24 @@ function RightColumn({ data, productCategory, pricemax, pricemin, productSize })
         }
     }, [productSize]);
 
+    // ____Price____
+    // console.log(data);
+    // const dataPrice = data.filter((item) => {
+    //     if (item.variations !== undefined && item.variations.nodes !== undefined) {
+    //         if (item.variations.nodes[0].salePrice == null) {
+    //             return item.variations.nodes[0].regularPrice.slice(1) > parseInt(pricemin, 10) && item.variations.nodes[0].regularPrice.slice(1) < parseInt(pricemax, 10);
+    //         } else {
+    //             return item.variations.nodes[0].salePrice.slice(1) > parseInt(pricemin, 10) && item.variations.nodes[0].salePrice.slice(1) < parseInt(pricemax, 10);
+    //         }
+    //     } else {
+    //         if (item.salePrice == null) {
+    //             return item.regularPrice.slice(1) > parseInt(pricemin, 10) && item.regularPrice.slice(1) < parseInt(pricemax, 10);
+    //         } else {
+    //             return item.salePrice.slice(1) > parseInt(pricemin, 10) && item.salePrice.slice(1) < parseInt(pricemax, 10);
+    //         }
+    //     }
+    // })
+
     const [pageNumber, setPageNumber] = useState(0);
     const usersperPage = 12;
     const pagesVisited = pageNumber * usersperPage;
@@ -81,22 +99,21 @@ function RightColumn({ data, productCategory, pricemax, pricemin, productSize })
 
 
     const displayUsers = dataProduct.slice(pagesVisited, pagesVisited + usersperPage)
-        // .filter((item) => {
-        //     if (item.variations !== undefined && item.variations.nodes !== undefined) {
-        //         if (item.variations.nodes[0].salePrice == null) {
-        //             return item.variations.nodes[0].regularPrice > 20 && item.variations.nodes[0].regularPrice < 50;
-        //         } else {
-        //             return item.variations.nodes[0].salePrice > 20 && item.variations.nodes[0].salePrice < 50;
-        //         }
-        //     } else {
-        //         if (item.salePrice == null) {
-        //             return item.regularPrice > 20 && item.regularPrice < 50;
-        //         } else {
-        //             return item.salePrice > 20 && item.salePrice < 50;
-        //         }
-        //     }
-        // })
-
+        .filter((item) => {
+            if (item.variations !== undefined && item.variations.nodes !== undefined) {
+                if (item.variations.nodes[0].salePrice == null) {
+                    return item.variations.nodes[0].regularPrice.slice(1) > parseInt(pricemin, 10) && item.variations.nodes[0].regularPrice.slice(1) < parseInt(pricemax, 10);
+                } else {
+                    return item.variations.nodes[0].salePrice.slice(1) > parseInt(pricemin, 10) && item.variations.nodes[0].salePrice.slice(1) < parseInt(pricemax, 10);
+                }
+            } else {
+                if (item.salePrice == null) {
+                    return item.regularPrice.slice(1) > parseInt(pricemin, 10) && item.regularPrice.slice(1) < parseInt(pricemax, 10);
+                } else {
+                    return item.salePrice.slice(1) > parseInt(pricemin, 10) && item.salePrice.slice(1) < parseInt(pricemax, 10);
+                }
+            }
+        })
         .map((item, index) => (
             <div
                 className={`item-list-product animated ${showGird == 'grid' ? 'product_per_4 col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 zoomIn' : 'col-xs-12 fadeInRight'}`}
@@ -108,6 +125,8 @@ function RightColumn({ data, productCategory, pricemax, pricemin, productSize })
                 />
             </div>
         ))
+
+
     return (
         <div id='right-column' className='col-xs-12 col-sm-8 col-md-9'>
             <div className='product-list'>

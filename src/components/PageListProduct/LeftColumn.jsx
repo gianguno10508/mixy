@@ -5,16 +5,31 @@ function LeftColumn
     ({ pathname, searchfilters, listCategory,
         listSize, handleChange,
         handleInput, minInNumbers, maxInNumbers,
-        handleChangeSize
+        handleChangeSize,
+        dataCategory, titleCategory
     }) {
     return (
         <div id="left-column" className="col-xs-12 col-sm-4 col-md-3">
+            {pathname ? (
+                <div className="block-categories">
+                    <ul className="category-top-menu">
+                        <li><a className="text-uppercase h6" href="#">Home</a></li>
+                        <li>
+                            <ul className="category-sub-menu">
+                                <li style={{ textTransform: 'capitalize' }}><a href="#">{pathname.slice(1).replace(/-/g, ' ')}</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            ) : (
+                null
+            )}
             {
                 searchfilters ? (
                     <div className='search_filters'>
                         <p className='text-uppercase h6 hidden-sm-down'>Filter By</p>
                         {listCategory &&
-                            <div className='filter-category facet clearfix'>
+                            <div className={`filter-category facet clearfix ${titleCategory === false ? 'category-disnone' : ''}`}>
                                 <p className="h6 facet-title hidden-sm-down">Categories</p>
                                 {listCategory.map((itemCategory, index) => (
                                     <label key={index}>{itemCategory.name}
@@ -48,20 +63,7 @@ function LeftColumn
                     </div>
                 ) : (null)
             }
-            {pathname ? (
-                <div className="block-categories">
-                    <ul className="category-top-menu">
-                        <li><a className="text-uppercase h6" href="#">Home</a></li>
-                        <li>
-                            <ul className="category-sub-menu">
-                                <li style={{ textTransform: 'capitalize' }}><a href="#">{pathname.slice(1).replace(/-/g, ' ')}</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            ) : (
-                null
-            )}
+
 
             <div id="tags_block">
                 <h2>tags</h2>
