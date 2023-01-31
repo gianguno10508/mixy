@@ -20,6 +20,8 @@ function NewProducts(props) {
                 <ComponentsListProduct
                     pathname={pathname}
                     dataPricesDrop={datalist}
+                    searchfilters={true}
+                    titleCategory={false}
                 />
             </>
         );

@@ -7,10 +7,15 @@
 }
 
 /* ____Left____ */
+
 .list-product #left-column .block-categories {
     box-shadow: none;
     padding: 0px;
     margin-bottom: 30px;
+}
+
+.list-product #left-column .search_filters .category-disnone {
+    display: none !important;
 }
 
 .list-product #left-column .block-categories .h6 {

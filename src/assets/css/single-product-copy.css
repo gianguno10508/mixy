@@ -225,7 +225,6 @@
     bottom: 0;
     border: 1px solid #e5e5e5;
     pointer-events: none;
-    border-bottom: none;
 }
 
 .product-miniature:hover::after {
@@ -447,4 +446,13 @@
     font-weight: 600;
     color: #fff;
     font-family: 'Dosis', sans-serif;
+}
+
+.popup-overlay {
+    background: rgba(0, 0, 0, .5);
+}
+
+.popup-detail {
+    background-color: #fff;
+    padding: 20px;
 }

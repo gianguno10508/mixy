@@ -4,12 +4,19 @@ import '../assets/css/components-list-product.css';
 import CATEGORIES from '../graphql/categories';
 import LeftColumn from './PageListProduct/LeftColumn';
 import RightColumn from './PageListProduct/RightColumn';
-function ComponentsListProduct({ pathname, dataPricesDrop, searchfilters }) {
+function ComponentsListProduct
+    ({ pathname, dataPricesDrop,
+        searchfilters, listCategory,
+        titleCategory }) {
     const [productCategory, setproductCategory] = useState([]);
     const [productSize, setproductSize] = useState([]);
     const [pricemin, setPriceMin] = useState();
     const [pricemax, setPriceMax] = useState();
     // console.log(productSize);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     const listSize = [
         { size: 100 },
@@ -17,15 +24,12 @@ function ComponentsListProduct({ pathname, dataPricesDrop, searchfilters }) {
         { size: 500 },
         { size: 1000 },
     ]
-
     const { loading, error, data } = useQuery(CATEGORIES);
-    var listCategory;
     if (loading) return <p>Loading......</p>;
     if (error) return <p>Error : {error.message}</p>;
     if (data) {
-        listCategory = data.productCategories.nodes;;
+        listCategory = data.productCategories.nodes;
     }
-
     // ______FilterCategory____
     const handleChange = e => {
         if (e.target.checked) {
@@ -87,6 +91,7 @@ function ComponentsListProduct({ pathname, dataPricesDrop, searchfilters }) {
                         maxInNumbers={maxInNumbers}
                         minInNumbers={minInNumbers}
                         handleInput={handleInput}
+                        titleCategory={titleCategory}
                     />
                     <RightColumn
                         data={dataPricesDrop}
